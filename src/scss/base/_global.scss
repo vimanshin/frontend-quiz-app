@@ -9,10 +9,21 @@
 }
 
 :root {
-  --font-sans: system-ui, 'Segoe UI', roboto, sans-serif;
+  --font-sans: 'Rubik', system-ui, 'Segoe UI', roboto, sans-serif;
+  --color-white: #fff;
+  --color-grey-50: #f4f6fa;
+  --color-grey-500: #626c7f;
+  --color-blue-900: #313e51;
+  --color-blue-850: #3b4d66;
+  --color-blue-300: #abc1e1;
+  --color-page: light-dark(var(--color-grey-50), var(--color-blue-900));
+  --color-surface: light-dark(var(--color-white), var(--color-blue-850));
+  --color-text: light-dark(var(--color-blue-900), var(--color-white));
+  --color-text-muted: light-dark(var(--color-grey-500), var(--color-blue-300));
 
   font-family: var(--font-sans);
   line-height: 1.5;
+  color-scheme: light;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,6 +31,15 @@
 
 body {
   margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-page);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 img,
