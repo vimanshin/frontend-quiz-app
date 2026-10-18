@@ -1,0 +1,65 @@
+# Design files (please do not remove 🙂)
+*.sketch
+*.fig
+*.xd
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+yarn.debug.log*
+yarn.error.log*
+npm-debug.log*
+
+# Environment and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+
+# Локальные файлы — правило исходного шаблона
+*.local
+
+# Оригиналы задания остаются только в рабочей папке
+/starter-code/
+
+# Testing
+/coverage
+
+# Production
+/build
+/dist
+/.next
+/out
+
+# IDEs and editors
+# Общие настройки WebStorm сохраняем, личное состояние — нет.
+.idea/workspace.xml
+.idea/claudeCodeEditorTabs.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/shelf/
+.idea/httpRequests/
+.idea/dataSources/
+.idea/dataSources.local.xml
+.idea/queries/
+/.vscode
+*.swp
+*.swo
+
+# Misc
+*.log
+*.pem
+.DS_Store
+Thumbs.db
+
+# Личные настройки AI-клиентов и артефакты браузерных проверок
+.claude/settings.local.json
+AGENTS.override.md
+.playwright-mcp/
+
+# AGENTS.md, .agents/ и .codex/ — общие правила проекта, входят в Git.
+# Личные отчёты и справочники исключены отдельно через .git/info/exclude.

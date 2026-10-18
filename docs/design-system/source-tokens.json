@@ -1,0 +1,1752 @@
+{
+  "source": {
+    "fileKey": "aFFGy8jexuex9L72SFQYPV",
+    "pageNodeId": "2:2",
+    "colorFrame": "22:124",
+    "typographyFrame": "2056:534",
+    "spacingFrame": "2056:1568",
+    "method": "Figma MCP get_design_context; sample text nodes and visible swatches; screenshots inspected"
+  },
+  "scope": {
+    "componentGroups": 8,
+    "sourceVariants": 23,
+    "expectedVariantNodeIds": [
+      "2050:2281",
+      "2050:2315",
+      "2050:2340",
+      "2050:2341",
+      "2050:2444",
+      "2050:2640",
+      "2050:2647",
+      "2050:2662",
+      "2050:2670",
+      "2050:2678",
+      "2050:3047",
+      "2050:3275",
+      "2056:2104",
+      "2058:541",
+      "2058:592",
+      "2058:687",
+      "2059:705",
+      "2059:711",
+      "2059:724",
+      "2059:737",
+      "2059:756",
+      "2059:775",
+      "2059:889"
+    ]
+  },
+  "foundations": {
+    "source": {
+      "fileKey": "aFFGy8jexuex9L72SFQYPV",
+      "pageNodeId": "2:2",
+      "colorFrame": "22:124",
+      "typographyFrame": "2056:534",
+      "spacingFrame": "2056:1568",
+      "method": "Figma MCP get_design_context; sample text nodes and visible swatches; screenshots inspected"
+    },
+    "colors": {
+      "white": {
+        "value": "#FFFFFF",
+        "nodeId": "22:137"
+      },
+      "black": {
+        "value": "#000000",
+        "nodeId": "2012:544"
+      },
+      "grey/500": {
+        "value": "#626C7F",
+        "nodeId": "22:154"
+      },
+      "grey/50": {
+        "value": "#F4F6FA",
+        "nodeId": "22:167"
+      },
+      "blue/950": {
+        "value": "#2D3949",
+        "nodeId": "2033:2679"
+      },
+      "blue/900": {
+        "value": "#313E51",
+        "nodeId": "2012:14"
+      },
+      "blue/850": {
+        "value": "#3B4D66",
+        "nodeId": "2012:27"
+      },
+      "blue/500": {
+        "value": "#306AFF",
+        "nodeId": "2033:2694"
+      },
+      "blue/300": {
+        "value": "#ABC1E1",
+        "nodeId": "2033:2665"
+      },
+      "blue/100": {
+        "value": "#EDF1F9",
+        "nodeId": "2033:2635"
+      },
+      "blue/50": {
+        "value": "#EBF0FF",
+        "nodeId": "2033:2648"
+      },
+      "green/500": {
+        "value": "#2FD887",
+        "nodeId": "2012:62"
+      },
+      "green/100": {
+        "value": "#E0FDEF",
+        "nodeId": "2012:88"
+      },
+      "purple/600": {
+        "value": "#A729F5",
+        "nodeId": "2012:123"
+      },
+      "purple/100": {
+        "value": "#F6E7FF",
+        "nodeId": "2012:212"
+      },
+      "orange/400": {
+        "value": "#FF7E35",
+        "nodeId": "2012:154"
+      },
+      "orange/50": {
+        "value": "#FFF5ED",
+        "nodeId": "2012:167"
+      },
+      "red/500": {
+        "value": "#EE5454",
+        "nodeId": "2012:185"
+      }
+    },
+    "typography": {
+      "preset-1": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 144,
+        "fontSizeRem": 9.0,
+        "fontWeight": 500,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:823"
+      },
+      "preset-2-medium": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 64,
+        "fontSizeRem": 4.0,
+        "fontWeight": 500,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:834"
+      },
+      "preset-2-light": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 64,
+        "fontSizeRem": 4.0,
+        "fontWeight": 300,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:845"
+      },
+      "preset-3": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 36,
+        "fontSizeRem": 2.25,
+        "fontWeight": 500,
+        "lineHeight": 1.2,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:856"
+      },
+      "preset-4": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 28,
+        "fontSizeRem": 1.75,
+        "fontWeight": 500,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:867"
+      },
+      "preset-5-medium": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 24,
+        "fontSizeRem": 1.5,
+        "fontWeight": 500,
+        "lineHeight": 1.5,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:878"
+      },
+      "preset-5-regular": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 24,
+        "fontSizeRem": 1.5,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:889"
+      },
+      "preset-6-italic": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 20,
+        "fontSizeRem": 1.25,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "letterSpacingPx": 0,
+        "fontStyle": "italic",
+        "nodeId": "2056:900"
+      },
+      "preset-1-mobile": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 88,
+        "fontSizeRem": 5.5,
+        "fontWeight": 500,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:912"
+      },
+      "preset-2-mobile-medium": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 40,
+        "fontSizeRem": 2.5,
+        "fontWeight": 500,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:923"
+      },
+      "preset-2-mobile-light": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 40,
+        "fontSizeRem": 2.5,
+        "fontWeight": 300,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:934"
+      },
+      "preset-3-mobile": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 20,
+        "fontSizeRem": 1.25,
+        "fontWeight": 500,
+        "lineHeight": 1.2,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:945"
+      },
+      "preset-4-mobile": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 18,
+        "fontSizeRem": 1.125,
+        "fontWeight": 500,
+        "lineHeight": 1,
+        "letterSpacingPx": 0,
+        "fontStyle": "normal",
+        "nodeId": "2056:956"
+      },
+      "preset-5-mobile-italic": {
+        "fontFamily": "Rubik",
+        "fontSizePx": 14,
+        "fontSizeRem": 0.875,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "letterSpacingPx": 0,
+        "fontStyle": "italic",
+        "nodeId": "2056:967"
+      }
+    },
+    "spacing": {
+      "100": {
+        "px": 8,
+        "rem": 0.5,
+        "nodeId": "2056:2018"
+      },
+      "200": {
+        "px": 16,
+        "rem": 1.0,
+        "nodeId": "2056:2025"
+      },
+      "300": {
+        "px": 24,
+        "rem": 1.5,
+        "nodeId": "2056:2032"
+      },
+      "400": {
+        "px": 32,
+        "rem": 2.0,
+        "nodeId": "2056:2039"
+      },
+      "500": {
+        "px": 40,
+        "rem": 2.5,
+        "nodeId": "2056:2046"
+      },
+      "600": {
+        "px": 48,
+        "rem": 3.0,
+        "nodeId": "2056:2053"
+      },
+      "800": {
+        "px": 64,
+        "rem": 4.0,
+        "nodeId": "2056:2060"
+      },
+      "1600": {
+        "px": 128,
+        "rem": 8.0,
+        "nodeId": "2056:2067"
+      },
+      "1800": {
+        "px": 144,
+        "rem": 9.0,
+        "nodeId": "2056:2074"
+      },
+      "2300": {
+        "px": 184,
+        "rem": 11.5,
+        "nodeId": "2056:2081"
+      }
+    },
+    "notes": [
+      "Plus Jakarta Sans and color/slate-* belong to the presentation board, not quiz presets.",
+      "Text Preset 5 Medium style name mentions 100% but its actual text style and visible annotation specify 150%; actual lineHeight=1.5 retained.",
+      "rem conversion uses an explicit 16px reference, not an extracted root font-size.",
+      "768px/1024px existing Sass breakpoints are template defaults, not confirmed design tokens."
+    ]
+  },
+  "controls": {
+    "fileKey": "aFFGy8jexuex9L72SFQYPV",
+    "units": "px; rem = px / 16",
+    "provenance": "Значения внутри variant относятся к его nodeId; вложенные объекты имеют собственный nodeId. get_design_context + get_metadata; screenshots просмотрены. Цвета векторов, радиусы badge, strokes и gap уточнены read-only use_figma (Plugin API).",
+    "groups": {
+      "submit": {
+        "nodeId": "2050:2327",
+        "showcaseOnly": {
+          "width": 660,
+          "height": 360
+        },
+        "variants": [
+          {
+            "nodeId": "2050:2340",
+            "name": "Button Desktop",
+            "state": "default",
+            "width": 564,
+            "height": 92,
+            "padding": [32, 32, 32, 32],
+            "gap": 8,
+            "radius": 24,
+            "fill": "#A729F5",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "justify": "center",
+            "overflow": "clip",
+            "text": {
+              "nodeId": "2050:2325",
+              "value": "Submit Answer",
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0,
+              "width": 205,
+              "height": 28
+            }
+          },
+          {
+            "nodeId": "2050:2341",
+            "name": "Button Hover & Active States",
+            "state": "hover/active",
+            "width": 564,
+            "height": 92,
+            "padding": [32, 32, 32, 32],
+            "gap": 8,
+            "radius": 24,
+            "fillLayersTopToBottom": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.5
+              },
+              {
+                "color": "#A729F5",
+                "opacity": 1
+              }
+            ],
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "justify": "center",
+            "overflow": "clip",
+            "text": {
+              "nodeId": "2050:2338",
+              "value": "Submit Answer",
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0,
+              "width": 205,
+              "height": 28
+            }
+          }
+        ]
+      },
+      "withIcon": {
+        "nodeId": "2050:3190",
+        "showcaseOnly": {
+          "width": 660,
+          "height": 360
+        },
+        "variants": [
+          {
+            "nodeId": "2050:3275",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#FFFFFF",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "light",
+            "state": "default",
+            "name": "Button Desktop - Light",
+            "badge": {
+              "nodeId": "2050:3072",
+              "width": 56,
+              "height": 56,
+              "background": {
+                "nodeId": "2050:3073",
+                "width": 56,
+                "height": 56,
+                "fill": "#FFF5ED",
+                "radius": 8
+              },
+              "icon": {
+                "nodeId": "2050:3074",
+                "width": 40,
+                "height": 40,
+                "inset": 8,
+                "glyph": {
+                  "nodeId": "2050:3075",
+                  "width": 32.4981689453125,
+                  "height": 25.000335693359375,
+                  "fill": "#FF7E35"
+                }
+              }
+            },
+            "text": {
+              "nodeId": "2050:3076",
+              "value": "HTML",
+              "width": 77,
+              "height": 28,
+              "color": "#313E51",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            }
+          },
+          {
+            "nodeId": "2059:889",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#3B4D66",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(49,62,81,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "dark",
+            "state": "default",
+            "name": "Button Desktop - Dark",
+            "badge": {
+              "nodeId": "2059:803",
+              "width": 56,
+              "height": 56,
+              "background": {
+                "nodeId": "2059:804",
+                "width": 56,
+                "height": 56,
+                "fill": "#FFF5ED",
+                "radius": 8
+              },
+              "icon": {
+                "nodeId": "2059:805",
+                "width": 40,
+                "height": 40,
+                "inset": 8,
+                "glyph": {
+                  "nodeId": "2059:806",
+                  "width": 32.4981689453125,
+                  "height": 25.000335693359375,
+                  "fill": "#FF7E35"
+                }
+              }
+            },
+            "text": {
+              "nodeId": "2059:807",
+              "value": "HTML",
+              "width": 77,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            }
+          }
+        ]
+      },
+      "option": {
+        "nodeId": "2050:2624",
+        "showcaseOnly": {
+          "width": 1390,
+          "height": 870
+        },
+        "variants": [
+          {
+            "nodeId": "2050:2640",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#FFFFFF",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "light",
+            "state": "default",
+            "badge": {
+              "nodeId": "2050:2636",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#F4F6FA"
+            },
+            "badgeLabel": {
+              "nodeId": "2050:2638",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#626C7F",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2050:2637",
+              "value": "4.5 : 1",
+              "width": 77,
+              "height": 28,
+              "color": "#313E51",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            }
+          },
+          {
+            "nodeId": "2050:2647",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#FFFFFF",
+            "border": {
+              "width": 3,
+              "align": "inside",
+              "color": "#A729F5"
+            },
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "light",
+            "state": "hover/active",
+            "badge": {
+              "nodeId": "2050:2643",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#A729F5"
+            },
+            "badgeLabel": {
+              "nodeId": "2050:2645",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2050:2644",
+              "value": "4.5 : 1",
+              "width": 77,
+              "height": 28,
+              "color": "#313E51",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            }
+          },
+          {
+            "nodeId": "2050:2662",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#FFFFFF",
+            "border": {
+              "width": 3,
+              "align": "inside",
+              "color": "#2FD887"
+            },
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "light",
+            "state": "correct",
+            "badge": {
+              "nodeId": "2050:2656",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#2FD887"
+            },
+            "badgeLabel": {
+              "nodeId": "2050:2660",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2050:2657",
+              "value": "4.5 : 1",
+              "width": 356,
+              "height": 28,
+              "color": "#313E51",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "statusIcon": {
+              "nodeId": "2050:2658",
+              "name": "checkmark-circle",
+              "width": 40,
+              "height": 40,
+              "glyph": {
+                "nodeId": "2050:2659",
+                "width": 30,
+                "height": 30,
+                "fill": "#2FD887"
+              }
+            }
+          },
+          {
+            "nodeId": "2050:2678",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#FFFFFF",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "light",
+            "state": "selection",
+            "badge": {
+              "nodeId": "2050:2672",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#F4F6FA"
+            },
+            "badgeLabel": {
+              "nodeId": "2050:2676",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#626C7F",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2050:2673",
+              "value": "4.5 : 1",
+              "width": 356,
+              "height": 28,
+              "color": "#313E51",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "statusIcon": {
+              "nodeId": "2050:2674",
+              "name": "checkmark-circle",
+              "width": 40,
+              "height": 40,
+              "glyph": {
+                "nodeId": "2050:2675",
+                "width": 30,
+                "height": 30,
+                "fill": "#2FD887"
+              }
+            }
+          },
+          {
+            "nodeId": "2050:2670",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#FFFFFF",
+            "border": {
+              "width": 3,
+              "align": "inside",
+              "color": "#EE5454"
+            },
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(143,160,193,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "light",
+            "state": "wrong",
+            "badge": {
+              "nodeId": "2050:2664",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#EE5454"
+            },
+            "badgeLabel": {
+              "nodeId": "2050:2668",
+              "value": "C",
+              "width": 20,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2050:2665",
+              "value": "2.5 : 1",
+              "width": 356,
+              "height": 28,
+              "color": "#313E51",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "statusIcon": {
+              "nodeId": "2050:2666",
+              "name": "dismiss-circle",
+              "width": 40,
+              "height": 40,
+              "glyph": {
+                "nodeId": "2050:2667",
+                "width": 30,
+                "height": 30,
+                "fill": "#EE5454"
+              }
+            }
+          },
+          {
+            "nodeId": "2059:711",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#3B4D66",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(49,62,81,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "dark",
+            "state": "default",
+            "badge": {
+              "nodeId": "2059:712",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#F4F6FA"
+            },
+            "badgeLabel": {
+              "nodeId": "2059:714",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#626C7F",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2059:713",
+              "value": "4.5 : 1",
+              "width": 77,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            }
+          },
+          {
+            "nodeId": "2059:724",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#3B4D66",
+            "border": {
+              "width": 3,
+              "align": "inside",
+              "color": "#A729F5"
+            },
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(49,62,81,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "dark",
+            "state": "hover/active",
+            "badge": {
+              "nodeId": "2059:725",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#A729F5"
+            },
+            "badgeLabel": {
+              "nodeId": "2059:727",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#3B4D66",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2059:726",
+              "value": "4.5 : 1",
+              "width": 77,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            }
+          },
+          {
+            "nodeId": "2059:737",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#3B4D66",
+            "border": {
+              "width": 3,
+              "align": "inside",
+              "color": "#2FD887"
+            },
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(49,62,81,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "dark",
+            "state": "correct",
+            "badge": {
+              "nodeId": "2059:738",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#2FD887"
+            },
+            "badgeLabel": {
+              "nodeId": "2059:742",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#3B4D66",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2059:739",
+              "value": "4.5 : 1",
+              "width": 356,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "statusIcon": {
+              "nodeId": "2059:740",
+              "name": "checkmark-circle",
+              "width": 40,
+              "height": 40,
+              "glyph": {
+                "nodeId": "2059:741",
+                "width": 30,
+                "height": 30,
+                "fill": "#2FD887"
+              }
+            }
+          },
+          {
+            "nodeId": "2059:756",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#3B4D66",
+            "border": null,
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(49,62,81,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "dark",
+            "state": "selection",
+            "badge": {
+              "nodeId": "2059:757",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#F4F6FA"
+            },
+            "badgeLabel": {
+              "nodeId": "2059:761",
+              "value": "A",
+              "width": 20,
+              "height": 28,
+              "color": "#626C7F",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2059:758",
+              "value": "4.5 : 1",
+              "width": 356,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "statusIcon": {
+              "nodeId": "2059:759",
+              "name": "checkmark-circle",
+              "width": 40,
+              "height": 40,
+              "glyph": {
+                "nodeId": "2059:760",
+                "width": 30,
+                "height": 30,
+                "fill": "#2FD887"
+              }
+            }
+          },
+          {
+            "nodeId": "2059:775",
+            "width": 564,
+            "height": 104,
+            "padding": [24, 24, 24, 24],
+            "gap": 32,
+            "radius": 24,
+            "fill": "#3B4D66",
+            "border": {
+              "width": 3,
+              "align": "inside",
+              "color": "#EE5454"
+            },
+            "shadow": {
+              "x": 0,
+              "y": 16,
+              "blur": 40,
+              "spread": 0,
+              "color": "rgba(49,62,81,0.14)"
+            },
+            "align": "center",
+            "overflow": "clip",
+            "theme": "dark",
+            "state": "wrong",
+            "badge": {
+              "nodeId": "2059:776",
+              "width": 56,
+              "height": 56,
+              "radius": 8,
+              "fill": "#EE5454"
+            },
+            "badgeLabel": {
+              "nodeId": "2059:780",
+              "value": "C",
+              "width": 20,
+              "height": 28,
+              "color": "#3B4D66",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "text": {
+              "nodeId": "2059:777",
+              "value": "2.5 : 1",
+              "width": 356,
+              "height": 28,
+              "color": "#FFFFFF",
+              "fontFamily": "Rubik",
+              "fontStyle": "Medium",
+              "fontWeight": 500,
+              "fontSize": 28,
+              "lineHeight": 28,
+              "letterSpacing": 0
+            },
+            "statusIcon": {
+              "nodeId": "2059:778",
+              "name": "dismiss-circle",
+              "width": 40,
+              "height": 40,
+              "glyph": {
+                "nodeId": "2059:779",
+                "width": 30,
+                "height": 30,
+                "fill": "#EE5454"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "notes": [
+      "border:null означает strokes:[] — видимой обводки нет; Figma strokeWeight=1 хранится, но без strokes не рисуется.",
+      "Обёртки выставочного стенда не являются размерами кнопок.",
+      "Selection не имеет обводки, badge нейтральный, справа зелёная галочка; это не Hover & Active.",
+      "Dark hover/active, correct и wrong имеют текст буквы #3B4D66, не белый. Цвета не исправлялись.",
+      "Submit hover/active — белый слой 50% поверх #A729F5; gap=8 подтверждён Plugin API, хотя отсутствовал в сгенерированном context.",
+      "Текст 4.5 : 1 / 2.5 : 1 — содержимое примера в Figma, не результат вычисления контраста.",
+      "Размеры относятся к показанным desktop-компонентам; responsive и отдельные focus/disabled состояния здесь не представлены."
+    ],
+    "remReference": {
+      "8": 0.5,
+      "24": 1.5,
+      "28": 1.75,
+      "32": 2.0,
+      "40": 2.5,
+      "56": 3.5,
+      "92": 5.75,
+      "104": 6.5,
+      "564": 35.25
+    }
+  },
+  "secondary": {
+    "fileKey": "aFFGy8jexuex9L72SFQYPV",
+    "pageId": "2:2",
+    "units": "px; coordinates relative to parent; rem = px / 16",
+    "provenance": "Figma MCP get_metadata + get_design_context with screenshot inspected; precise supplementary properties from read-only use_figma. Each nodeId is the source of its properties. Empty strokes/effects mean none, not default strokeWeight.",
+    "groups": {
+      "score": {
+        "nodeId": "2050:2422",
+        "showcaseSize": [1390, 568],
+        "screenshotChecked": true,
+        "size": [564, 388],
+        "layout": "vertical, center",
+        "padding": 48,
+        "gap": 40,
+        "radius": 24,
+        "stroke": null,
+        "clipsContent": true,
+        "sharedTypography": {
+          "label": {
+            "font": "Rubik",
+            "weight": 500,
+            "fontSize": 28,
+            "lineHeightPercent": 100,
+            "letterSpacing": 0
+          },
+          "score": {
+            "font": "Rubik",
+            "weight": 500,
+            "fontSize": 144,
+            "lineHeightPercent": 100,
+            "letterSpacing": 0
+          },
+          "total": {
+            "font": "Rubik",
+            "weight": 400,
+            "fontSize": 24,
+            "lineHeightPercent": 150,
+            "letterSpacing": 0
+          }
+        },
+        "light": {
+          "nodeId": "2050:2444",
+          "xy": [89, 90],
+          "fill": "#FFFFFF",
+          "shadow": {
+            "offset": [0, 16],
+            "blur": 40,
+            "spread": 0,
+            "cssColor": "rgba(143,160,193,0.14)",
+            "figmaRgba": [
+              0.5624305605888367, 0.6277315020561218, 0.7583333253860474,
+              0.14000000059604645
+            ]
+          },
+          "logo": {
+            "nodeId": "2050:2434",
+            "xy": [155.5, 48],
+            "size": [253, 56],
+            "gap": 24,
+            "padding": 0,
+            "fill": null,
+            "radius": 0,
+            "stroke": null,
+            "shadow": null,
+            "badge": {
+              "nodeId": "2050:2435",
+              "xy": [0, 0],
+              "size": [56, 56],
+              "backgroundNodeId": "2050:2436",
+              "fill": "#F6E7FF",
+              "radius": 8,
+              "iconNodeId": "2050:2437",
+              "iconInset": 8,
+              "iconSize": [40, 40],
+              "paintNodeId": "2050:2438",
+              "iconFill": "#A729F5"
+            },
+            "label": {
+              "nodeId": "2050:2439",
+              "xy": [80, 14],
+              "size": [173, 28],
+              "value": "Accessibility",
+              "fill": "#313E51",
+              "typographyRef": "sharedTypography.label"
+            }
+          },
+          "result": {
+            "nodeId": "2050:2440",
+            "xy": [48, 144],
+            "size": [468, 196],
+            "layout": "vertical, center",
+            "gap": 16,
+            "padding": 0,
+            "fill": null,
+            "radius": 0,
+            "stroke": null,
+            "shadow": null,
+            "score": {
+              "nodeId": "2050:2441",
+              "xy": [186.5, 0],
+              "size": [95, 144],
+              "value": "8",
+              "fill": "#313E51",
+              "typographyRef": "sharedTypography.score"
+            },
+            "total": {
+              "nodeId": "2050:2442",
+              "xy": [185, 160],
+              "size": [98, 36],
+              "value": "out of 10",
+              "fill": "#626C7F",
+              "typographyRef": "sharedTypography.total"
+            }
+          }
+        },
+        "dark": {
+          "nodeId": "2059:705",
+          "xy": [734, 90],
+          "fill": "#3B4D66",
+          "shadow": {
+            "offset": [0, 16],
+            "blur": 40,
+            "spread": 0,
+            "cssColor": "rgba(49,62,81,0.14)",
+            "figmaRgba": [
+              0.1921568661928177, 0.24313725531101227, 0.3176470696926117,
+              0.14000000059604645
+            ]
+          },
+          "logo": {
+            "nodeId": "2059:656",
+            "xy": [155.5, 48],
+            "size": [253, 56],
+            "gap": 24,
+            "padding": 0,
+            "fill": null,
+            "radius": 0,
+            "stroke": null,
+            "shadow": null,
+            "badge": {
+              "nodeId": "2059:657",
+              "xy": [0, 0],
+              "size": [56, 56],
+              "backgroundNodeId": "2059:658",
+              "fill": "#F6E7FF",
+              "radius": 8,
+              "iconNodeId": "2059:659",
+              "iconInset": 8,
+              "iconSize": [40, 40],
+              "paintNodeId": "2059:660",
+              "iconFill": "#A729F5"
+            },
+            "label": {
+              "nodeId": "2059:661",
+              "xy": [80, 14],
+              "size": [173, 28],
+              "value": "Accessibility",
+              "fill": "#FFFFFF",
+              "typographyRef": "sharedTypography.label"
+            }
+          },
+          "result": {
+            "nodeId": "2059:662",
+            "xy": [48, 144],
+            "size": [468, 196],
+            "layout": "vertical, center",
+            "gap": 16,
+            "padding": 0,
+            "fill": null,
+            "radius": 0,
+            "stroke": null,
+            "shadow": null,
+            "score": {
+              "nodeId": "2059:663",
+              "xy": [186.5, 0],
+              "size": [95, 144],
+              "value": "8",
+              "fill": "#FFFFFF",
+              "typographyRef": "sharedTypography.score"
+            },
+            "total": {
+              "nodeId": "2059:664",
+              "xy": [185, 160],
+              "size": [98, 36],
+              "value": "out of 10",
+              "fill": "#ABC1E1",
+              "typographyRef": "sharedTypography.total"
+            }
+          }
+        },
+        "notes": [
+          "8 and out of 10 are sample text, not an inferred score algorithm.",
+          "Shared properties apply to both explicit variant nodeIds; typography comes from respective text nodes.",
+          "Shadow cssColor is the get_design_context approximation; figmaRgba preserves exact Plugin API floats."
+        ]
+      },
+      "notification": {
+        "nodeId": "2050:3028",
+        "name": "Wrong Answer Notification",
+        "showcaseSize": [660, 168],
+        "screenshotChecked": true,
+        "desktop": {
+          "nodeId": "2050:3047",
+          "xy": [172, 64],
+          "size": [316, 40],
+          "layout": "horizontal, center",
+          "gap": 8,
+          "padding": 0,
+          "fill": null,
+          "radius": 0,
+          "stroke": null,
+          "shadow": null,
+          "icon": {
+            "nodeId": "2050:3043",
+            "xy": [0, 0],
+            "size": [40, 40],
+            "vector": {
+              "nodeId": "2050:3044",
+              "xy": [5, 5],
+              "size": [30, 30],
+              "fill": "#EE5454",
+              "stroke": null,
+              "shadow": null
+            }
+          },
+          "text": {
+            "nodeId": "2050:3045",
+            "xy": [48, 2],
+            "size": [268, 36],
+            "value": "Please select an answer",
+            "fill": "#EE5454",
+            "font": "Rubik",
+            "style": "Regular",
+            "weight": 400,
+            "fontSize": 24,
+            "lineHeightPercent": 150,
+            "letterSpacing": 0
+          }
+        },
+        "notes": [
+          "Despite the group name, the shown message means no answer selected, not an incorrect submitted answer.",
+          "Only Desktop variant is present in this group."
+        ]
+      },
+      "progress": {
+        "nodeId": "2050:2282",
+        "showcaseSize": [660, 168],
+        "screenshotChecked": true,
+        "size": [465, 16],
+        "padding": 4,
+        "layout": "vertical, centered main axis, start cross axis",
+        "gap": 8,
+        "radius": 999,
+        "stroke": null,
+        "shadow": null,
+        "light": {
+          "nodeId": "2050:2315",
+          "xy": [98, 53],
+          "fill": "#FFFFFF",
+          "bar": {
+            "nodeId": "2050:2313",
+            "xy": [4, 4],
+            "size": [300, 8],
+            "fill": "#A729F5",
+            "radius": 104,
+            "stroke": null,
+            "shadow": null
+          }
+        },
+        "dark": {
+          "nodeId": "2058:687",
+          "xy": [98, 100],
+          "fill": "#3B4D66",
+          "bar": {
+            "nodeId": "2058:608",
+            "xy": [4, 4],
+            "size": [300, 8],
+            "fill": "#A729F5",
+            "radius": 104,
+            "stroke": null,
+            "shadow": null
+          }
+        },
+        "functionalPercent": null,
+        "notes": [
+          "300px is the displayed sample width only; no functional percentage or quiz-progress algorithm is specified.",
+          "itemSpacing 8 is an API property with only one child; it produces no visible inter-item gap.",
+          "No text typography applies."
+        ]
+      },
+      "logo": {
+        "nodeId": "2056:2093",
+        "showcaseSize": [660, 168],
+        "screenshotChecked": true,
+        "contentSize": [253, 56],
+        "gap": 24,
+        "layout": "horizontal, center",
+        "typography": {
+          "font": "Rubik",
+          "style": "Medium",
+          "weight": 500,
+          "fontSize": 28,
+          "lineHeightPercent": 100,
+          "letterSpacing": 0
+        },
+        "light": {
+          "nodeId": "2058:541",
+          "xy": [41, 56],
+          "size": [253, 56],
+          "padding": 0,
+          "fill": null,
+          "radius": 0,
+          "stroke": null,
+          "shadow": null,
+          "badge": {
+            "nodeId": "2058:535",
+            "xy": [0, 0],
+            "size": [56, 56],
+            "backgroundNodeId": "2058:536",
+            "fill": "#F6E7FF",
+            "radius": 8,
+            "stroke": null,
+            "shadow": null,
+            "iconNodeId": "2058:537",
+            "iconInset": 8,
+            "iconSize": [40, 40],
+            "paintNodeId": "2058:538",
+            "iconFill": "#A729F5"
+          },
+          "text": {
+            "nodeId": "2058:539",
+            "xy": [80, 14],
+            "size": [173, 28],
+            "value": "Accessibility",
+            "fill": "#313E51"
+          }
+        },
+        "dark": {
+          "nodeId": "2056:2104",
+          "xy": [334, 40],
+          "showcaseSize": [285, 88],
+          "showcasePadding": 16,
+          "showcaseFill": "#2D3949",
+          "radius": 0,
+          "stroke": null,
+          "shadow": null,
+          "badge": {
+            "nodeId": "2056:2087",
+            "xy": [16, 16],
+            "size": [56, 56],
+            "backgroundNodeId": "2056:2088",
+            "fill": "#F6E7FF",
+            "radius": 8,
+            "stroke": null,
+            "shadow": null,
+            "iconNodeId": "2056:2089",
+            "iconInset": 8,
+            "iconSize": [40, 40],
+            "paintNodeId": "2056:2090",
+            "iconFill": "#A729F5"
+          },
+          "text": {
+            "nodeId": "2056:2091",
+            "xy": [96, 30],
+            "size": [173, 28],
+            "value": "Accessibility",
+            "fill": "#FFFFFF"
+          }
+        },
+        "notes": [
+          "Dark 285×88 is showcase including 16px padding; intrinsic logo content is 253×56. Badge iconInset is relative to the badge, not raw Figma GROUP coordinate space."
+        ]
+      },
+      "toggle": {
+        "nodeId": "22:445",
+        "name": "Light/Dark Mode Button",
+        "showcaseSize": [660, 168],
+        "screenshotChecked": true,
+        "layout": "horizontal, center",
+        "gap": 16,
+        "contentSize": [128, 28],
+        "light": {
+          "nodeId": "2050:2281",
+          "xy": [142, 70],
+          "size": [128, 28],
+          "padding": 0,
+          "fill": null,
+          "radius": 0,
+          "stroke": null,
+          "shadow": null,
+          "sun": {
+            "nodeId": "2050:2273",
+            "xy": [0, 2],
+            "size": [24, 24],
+            "paintNodeId": "2050:2274",
+            "fill": "#626C7F"
+          },
+          "track": {
+            "nodeId": "2050:2275",
+            "xy": [40, 0],
+            "size": [48, 28],
+            "padding": 4,
+            "gap": 0,
+            "fill": "#A729F5",
+            "radius": 999,
+            "stroke": null,
+            "shadow": null
+          },
+          "thumb": {
+            "nodeId": "2050:2276",
+            "xy": [4, 4],
+            "size": [20, 20],
+            "shape": "ellipse",
+            "fill": "#FFFFFF"
+          },
+          "unpaintedEllipse": {
+            "nodeId": "2050:2277",
+            "xy": [24, 4],
+            "size": [20, 20],
+            "fillVisible": false
+          },
+          "moon": {
+            "nodeId": "2050:2278",
+            "xy": [104, 2],
+            "size": [24, 24],
+            "paintNodeId": "2050:2279",
+            "fill": "#626C7F"
+          }
+        },
+        "dark": {
+          "nodeId": "2058:592",
+          "xy": [358, 54],
+          "showcaseSize": [160, 60],
+          "showcasePadding": 16,
+          "showcaseFill": "#2D3949",
+          "radius": 0,
+          "stroke": null,
+          "shadow": null,
+          "sun": {
+            "nodeId": "2058:568",
+            "xy": [16, 18],
+            "size": [24, 24],
+            "paintNodeId": "2058:569",
+            "fill": "#FFFFFF"
+          },
+          "track": {
+            "nodeId": "2058:570",
+            "xy": [56, 16],
+            "size": [48, 28],
+            "padding": 4,
+            "gap": 0,
+            "fill": "#A729F5",
+            "radius": 999,
+            "stroke": null,
+            "shadow": null
+          },
+          "thumb": {
+            "nodeId": "2058:572",
+            "xy": [24, 4],
+            "size": [20, 20],
+            "shape": "ellipse",
+            "fill": "#FFFFFF"
+          },
+          "unpaintedEllipse": {
+            "nodeId": "2058:571",
+            "xy": [4, 4],
+            "size": [20, 20],
+            "fillVisible": false
+          },
+          "moon": {
+            "nodeId": "2058:573",
+            "xy": [120, 18],
+            "size": [24, 24],
+            "paintNodeId": "2058:574",
+            "fill": "#FFFFFF"
+          }
+        },
+        "notes": [
+          "Dark variant includes a 16px showcase wrapper; the switch itself is 48×28, not 160×60.",
+          "No text typography applies."
+        ]
+      }
+    },
+    "pxToRem": {
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1,
+      "24": 1.5,
+      "28": 1.75,
+      "40": 2.5,
+      "48": 3,
+      "144": 9
+    },
+    "uncertainties": [
+      "Functional progress percentage and dynamic scoring behavior are not defined by these static samples.",
+      "Responsive sizes and states absent from these selected groups are not inferred.",
+      "HEX colors normalize Figma RGB floats to 8-bit; exact non-integer light shadow color is preserved separately."
+    ]
+  },
+  "derived": {
+    "remReferencePx": 16,
+    "submitHoverComposite": "#D394FA",
+    "submitHoverFormula": "50% white over purple-600 in sRGB"
+  },
+  "exportComponentProvenance": {
+    "submit-default": "2050:2340",
+    "submit-hover-active": "2050:2341",
+    "subject-light-default": "2050:3275",
+    "subject-dark-default": "2059:889",
+    "answer-light-default": "2050:2640",
+    "answer-light-default-badge": "2050:2636",
+    "answer-light-hover-active": "2050:2647",
+    "answer-light-hover-active-badge": "2050:2643",
+    "answer-light-correct": "2050:2662",
+    "answer-light-correct-badge": "2050:2656",
+    "answer-light-selection": "2050:2678",
+    "answer-light-selection-badge": "2050:2672",
+    "answer-light-wrong": "2050:2670",
+    "answer-light-wrong-badge": "2050:2664",
+    "answer-dark-default": "2059:711",
+    "answer-dark-default-badge": "2059:712",
+    "answer-dark-hover-active": "2059:724",
+    "answer-dark-hover-active-badge": "2059:725",
+    "answer-dark-correct": "2059:737",
+    "answer-dark-correct-badge": "2059:738",
+    "answer-dark-selection": "2059:756",
+    "answer-dark-selection-badge": "2059:757",
+    "answer-dark-wrong": "2059:775",
+    "answer-dark-wrong-badge": "2059:776",
+    "score-light-total": "2050:2442",
+    "score-light": "2050:2444",
+    "progress-light": "2050:2315",
+    "logo-light": "2058:541",
+    "score-dark-total": "2059:664",
+    "score-dark": "2059:705",
+    "progress-dark": "2058:687",
+    "logo-dark": "2056:2104",
+    "progress-fill": "2050:2313",
+    "theme-switch-track": "2050:2275",
+    "theme-switch-thumb": "2050:2276",
+    "selection-error": "2050:3047"
+  }
+}
