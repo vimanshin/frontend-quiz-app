@@ -1,0 +1,34 @@
+@use '../abstracts/mixins';
+
+.quiz-page {
+  min-height: 100svh;
+  background-image: url('../../assets/images/pattern-background-mobile-light.svg');
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  @include mixins.tablet {
+    background-image: url('../../assets/images/pattern-background-tablet-light.svg');
+  }
+
+  @include mixins.desktop {
+    background-image: url('../../assets/images/pattern-background-desktop-light.svg');
+    background-position: center top;
+  }
+}
+
+.quiz-shell {
+  width: calc(100% - 3rem);
+  max-width: 72.5rem;
+  padding-block-end: 2rem;
+  margin-inline: auto;
+  container: quiz-layout / inline-size;
+
+  @include mixins.tablet {
+    width: calc(100% - 8rem);
+    padding-block-start: 3.375rem;
+  }
+
+  @include mixins.desktop {
+    padding-block-start: 6.0625rem;
+  }
+}

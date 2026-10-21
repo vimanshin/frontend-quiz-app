@@ -16,6 +16,13 @@
   --color-blue-900: #313e51;
   --color-blue-850: #3b4d66;
   --color-blue-300: #abc1e1;
+  --color-purple-600: #a729f5;
+  --color-orange-50: #fff5ed;
+  --color-green-100: #e0fdef;
+  --color-blue-50: #ebf0ff;
+  --color-purple-100: #f6e7ff;
+  --shadow-card: 0 16px 40px rgb(143 160 193 / 14%);
+  --color-accent: var(--color-purple-600);
   --color-page: light-dark(var(--color-grey-50), var(--color-blue-900));
   --color-surface: light-dark(var(--color-white), var(--color-blue-850));
   --color-text: light-dark(var(--color-blue-900), var(--color-white));

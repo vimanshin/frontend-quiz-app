@@ -1,0 +1,74 @@
+@use '../abstracts/mixins';
+
+.start-screen {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  margin-block-start: 2rem;
+
+  &__title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  &__title-accent {
+    display: block;
+    margin-block-start: 0.5rem;
+    font-weight: 500;
+  }
+
+  &__description {
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  &__subjects {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  @include mixins.tablet {
+    gap: 4rem;
+    margin-block-start: 2.9375rem;
+
+    &__title {
+      font-size: 4rem;
+    }
+
+    &__description {
+      font-size: 1.25rem;
+    }
+
+    &__subjects {
+      gap: 1.5rem;
+    }
+  }
+
+  @include mixins.desktop {
+    align-items: start;
+    margin-block-start: 6.1875rem;
+
+    &__description {
+      margin-block-start: 3rem;
+    }
+
+    &__subjects {
+      gap: 1rem;
+    }
+
+    // Две колонки включаются, только если для них хватает места с учётом шрифта.
+    @container quiz-layout (width >= 67rem) {
+      grid-template-columns: minmax(0, 29.0625rem) minmax(0, 1fr);
+      gap: 8rem;
+    }
+  }
+}

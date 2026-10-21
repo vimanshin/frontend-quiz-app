@@ -6,8 +6,115 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <title>Frontend Mentor | Frontend quiz app</title>
   </head>
-  <body>
-    <main></main>
+  <body class="quiz-page">
+    <div class="quiz-shell">
+      <header class="quiz-header">
+        <div
+          class="quiz-header__theme"
+          role="img"
+          aria-label="Light theme. Theme switching is not available yet."
+        >
+          <img
+            class="quiz-header__theme-icon"
+            src="/src/assets/images/icon-sun-dark.svg"
+            width="24"
+            height="24"
+            alt=""
+            decoding="async"
+          />
+          <span class="quiz-header__theme-track" aria-hidden="true"></span>
+          <img
+            class="quiz-header__theme-icon"
+            src="/src/assets/images/icon-moon-dark.svg"
+            width="24"
+            height="24"
+            alt=""
+            decoding="async"
+          />
+        </div>
+      </header>
+
+      <main class="start-screen">
+        <div class="start-screen__welcome">
+          <h1 class="start-screen__title">
+            Welcome to the
+            <span class="start-screen__title-accent">Frontend Quiz!</span>
+          </h1>
+          <p class="start-screen__description">
+            Pick a subject to get started.
+          </p>
+        </div>
+
+        <ul class="start-screen__subjects" role="list">
+          <li class="start-screen__subject">
+            <button class="subject-card subject-card--html" type="button">
+              <span class="subject-card__icon">
+                <img
+                  class="subject-card__image"
+                  src="/src/assets/images/icon-html.svg"
+                  width="40"
+                  height="40"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <span class="subject-card__name">HTML</span>
+            </button>
+          </li>
+
+          <li class="start-screen__subject">
+            <button class="subject-card subject-card--css" type="button">
+              <span class="subject-card__icon">
+                <img
+                  class="subject-card__image"
+                  src="/src/assets/images/icon-css.svg"
+                  width="40"
+                  height="40"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <span class="subject-card__name">CSS</span>
+            </button>
+          </li>
+
+          <li class="start-screen__subject">
+            <button class="subject-card subject-card--javascript" type="button">
+              <span class="subject-card__icon">
+                <img
+                  class="subject-card__image"
+                  src="/src/assets/images/icon-js.svg"
+                  width="40"
+                  height="40"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <span class="subject-card__name">JavaScript</span>
+            </button>
+          </li>
+
+          <li class="start-screen__subject">
+            <button
+              class="subject-card subject-card--accessibility"
+              type="button"
+            >
+              <span class="subject-card__icon">
+                <img
+                  class="subject-card__image"
+                  src="/src/assets/images/icon-accessibility.svg"
+                  width="40"
+                  height="40"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <span class="subject-card__name">Accessibility</span>
+            </button>
+          </li>
+        </ul>
+      </main>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
