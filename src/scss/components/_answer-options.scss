@@ -1,0 +1,134 @@
+@use '../abstracts/mixins';
+
+.answer-group {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  &__legend {
+    @include mixins.visually-hidden;
+  }
+
+  &__options {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @include mixins.tablet {
+    &__options {
+      gap: 1.5rem;
+    }
+  }
+
+  @include mixins.desktop {
+    &__options {
+      gap: 1rem;
+    }
+  }
+}
+
+.answer-option {
+  position: relative;
+  min-width: 0;
+
+  &__input {
+    @include mixins.visually-hidden;
+  }
+
+  &__card {
+    --answer-letter-background: var(--color-grey-50);
+    --answer-letter-color: var(--color-grey-500);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    min-width: 0;
+    padding: 1rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-text);
+    cursor: pointer;
+    background-color: var(--color-surface);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  &__letter {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--answer-letter-color);
+    background-color: var(--answer-letter-background);
+    border-radius: 6px;
+  }
+
+  &__text {
+    flex: 1 1 0;
+    min-width: min(4rem, 100%);
+    overflow-wrap: anywhere;
+  }
+
+  // Область остаётся в раскладке и без значка, чтобы его появление не сдвигало текст.
+  &__status {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    margin-inline-start: auto;
+  }
+
+  &__input:checked + &__card {
+    --answer-letter-background: var(--color-accent);
+    --answer-letter-color: var(--color-white);
+
+    box-shadow:
+      inset 0 0 0 3px var(--color-accent),
+      var(--shadow-card);
+  }
+
+  &__input:focus-visible + &__card {
+    outline: 3px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__input:not(:checked) + &__card:hover {
+      --answer-letter-background: var(--color-purple-100);
+      --answer-letter-color: var(--color-text);
+    }
+  }
+
+  @include mixins.tablet {
+    &__card {
+      gap: 2rem;
+      font-size: 1.75rem;
+      border-radius: 1.5rem;
+    }
+
+    &__letter {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 12px;
+    }
+
+    &__status {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  @include mixins.desktop {
+    &__card {
+      padding: 1.5rem;
+    }
+
+    &__letter {
+      border-radius: 8px;
+    }
+  }
+}

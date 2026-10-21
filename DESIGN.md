@@ -1,7 +1,7 @@
 ---
 version: 'alpha'
 name: 'Frontend Quiz App'
-description: 'Основа — Figma Design System 2:2; отдельно документированы базовые цветовые роли desktop-меню и светлый стартовый экран этапа 01 со страницы 1:3.'
+description: 'Основа — Figma Design System 2:2; отдельно документированы светлые экраны меню и вопроса со страницы 1:3 и согласованные решения этапов 00–02.'
 colors:
   white: '#FFFFFF'
   black: '#000000'
@@ -38,6 +38,9 @@ colors:
   screen-subject-css-badge: '{colors.green-100}'
   screen-subject-javascript-badge: '{colors.blue-50}'
   screen-subject-accessibility-badge: '{colors.purple-100}'
+  # Согласованные роли реализации этапа 02, не новые цвета Figma.
+  impl-question-focus: '{colors.blue-900}'
+  impl-answer-hover-badge: '{colors.purple-100}'
 typography:
   preset-1:
     fontFamily: 'Rubik'
@@ -420,13 +423,114 @@ components:
     backgroundColor: '{colors.white}'
     width: '12px'
     height: '12px'
+  # Образцы вопроса: размеры источника, не фиксированные размеры CSS.
+  screen-question-answer-mobile:
+    backgroundColor: '{colors.white}'
+    textColor: '{colors.blue-900}'
+    typography: '{typography.preset-4-mobile}'
+    rounded: '12px'
+    padding: '1rem'
+    width: '327px'
+    height: '72px'
+  screen-question-answer-tablet:
+    backgroundColor: '{colors.white}'
+    textColor: '{colors.blue-900}'
+    typography: '{typography.preset-4}'
+    rounded: '{rounded.card}'
+    padding: '1rem'
+    width: '640px'
+    height: '88px'
+  screen-question-answer-desktop:
+    backgroundColor: '{colors.white}'
+    textColor: '{colors.blue-900}'
+    typography: '{typography.preset-4}'
+    rounded: '{rounded.card}'
+    padding: '1.5rem'
+    width: '564px'
+    height: '104px'
+  screen-question-letter-mobile:
+    backgroundColor: '{colors.grey-50}'
+    textColor: '{colors.grey-500}'
+    typography: '{typography.preset-4-mobile}'
+    rounded: '6px'
+    size: '40px'
+  screen-question-letter-tablet:
+    backgroundColor: '{colors.grey-50}'
+    textColor: '{colors.grey-500}'
+    typography: '{typography.preset-4}'
+    rounded: '12px'
+    size: '56px'
+  screen-question-letter-desktop:
+    backgroundColor: '{colors.grey-50}'
+    textColor: '{colors.grey-500}'
+    typography: '{typography.preset-4}'
+    rounded: '{rounded.badge}'
+    size: '56px'
+  screen-question-status-mobile:
+    size: '32px'
+  screen-question-status-tablet:
+    size: '40px'
+  screen-question-status-desktop:
+    size: '40px'
+  screen-question-submit-mobile:
+    backgroundColor: '{colors.purple-600}'
+    textColor: '{colors.white}'
+    typography: '{typography.preset-4-mobile}'
+    rounded: '12px'
+    padding: '1rem'
+    width: '327px'
+    height: '56px'
+  screen-question-submit-tablet:
+    backgroundColor: '{colors.purple-600}'
+    textColor: '{colors.white}'
+    typography: '{typography.preset-4}'
+    rounded: '{rounded.card}'
+    padding: '2rem'
+    width: '640px'
+    height: '92px'
+  screen-question-submit-desktop:
+    backgroundColor: '{colors.purple-600}'
+    textColor: '{colors.white}'
+    typography: '{typography.preset-4}'
+    rounded: '{rounded.card}'
+    padding: '2rem'
+    width: '564px'
+    height: '92px'
+  screen-question-progress-mobile:
+    backgroundColor: '{colors.white}'
+    rounded: '{rounded.pill}'
+    padding: '0.25rem'
+    width: '327px'
+    height: '16px'
+  screen-question-progress-tablet:
+    backgroundColor: '{colors.white}'
+    rounded: '{rounded.pill}'
+    padding: '0.25rem'
+    width: '640px'
+    height: '16px'
+  screen-question-progress-desktop:
+    backgroundColor: '{colors.white}'
+    rounded: '{rounded.pill}'
+    padding: '0.25rem'
+    width: '465px'
+    height: '16px'
+  # Реализация: не переопределяет исходные варианты стенда.
+  impl-question-answer-hover-badge:
+    backgroundColor: '{colors.impl-answer-hover-badge}'
+    textColor: '{colors.blue-900}'
+  impl-question-answer-selected-badge:
+    backgroundColor: '{colors.purple-600}'
+    textColor: '{colors.white}'
+  impl-question-submit-hover:
+    backgroundColor: '{colors.purple-600}'
+    textColor: '{colors.white}'
 ---
 
 # Frontend Quiz App — дизайн-система
 
 ## Overview
 
-Основной источник: [Figma — Design System](https://www.figma.com/design/aFFGy8jexuex9L72SFQYPV/frontend-quiz-app?node-id=2-2), страница `2:2`. Базовые цветовые роли desktop-меню и уточнения светлого стартового экрана этапа 01 со страницы `1:3` описаны отдельно от стенда. Это спецификация, а не исходники интерфейса или учебный план.
+Основной источник: [Figma — Design System](https://www.figma.com/design/aFFGy8jexuex9L72SFQYPV/frontend-quiz-app?node-id=2-2), страница `2:2`. Базовые цветовые роли, светлые стартовый экран и экран вопроса со страницы `1:3` описаны отдельно от стенда. Согласованные решения реализации помечены отдельно от измерений. Это спецификация, а не исходники интерфейса или учебный план.
 
 Палитра, типографика и шкала отступов извлечены из Figma; значения компонентов относятся к показанным экземплярам. `src/`, `starter-code/`, зависимости и Git не изменяются этой задачей.
 
@@ -523,7 +627,7 @@ components:
 
 **Курсив:** формат DESIGN.md alpha не содержит `fontStyle` в typography. Поэтому italic явно отмечен именем/таблицей, сохранён в source JSON и в `$extensions` соответствующего DTCG-токена. При подключении к CSS требуется `font-style: italic`; экспорт не должен превратить курсив в обычный текст.
 
-В `src/assets/fonts/` уже есть variable Rubik normal/italic. Для Light 300 использовать соответствующее начертание variable-файла, а не искусственно облегчать Regular. Подключение `@font-face` — последующий этап, сейчас стили приложения не изменяются.
+В `src/assets/fonts/` есть variable Rubik normal/italic; они подключены в `src/scss/base/_fonts.scss` на этапе 00. Для Light 300 используется соответствующее начертание variable-файла, а не искусственное облегчение Regular. Изменение этой спецификации само по себе не изменяет стили приложения.
 
 ## Layout
 
@@ -605,6 +709,73 @@ components:
 
 В YAML добавлены только пять цветовых alias и восемь `screen-start-*` компонентов: три образца карточек, три подложки и mobile track/thumb. Остальные значения и решения находятся в таблицах и тексте выше. Desktop YAML сохраняет исходную ширину 564 px; согласованная CSS-ширина 567 px не подменяет источник.
 
+### Экранное дополнение этапа 02: источники и измерения
+
+Область: светлый статический экран вопроса. Источники Figma файла `aFFGy8jexuex9L72SFQYPV`, страница `1:3`: default desktop `2009:1646`, tablet `2019:472`, mobile `2022:441`; Active `2009:2220`, `2019:672`, `2022:539`. Свойства и скриншоты проверены через Figma MCP в рабочей сессии; при независимой приёмке повторно проверены mobile/desktop default, tablet Active и области статуса. Полная тёмная тема и состояния после подтверждения не входят в это дополнение.
+
+Значения ниже — размеры экземпляров источника в px; порядок колонок mobile/tablet/desktop. Это не обязательные фиксированные размеры CSS. Дробные значения высоты текста зависят от переноса; line-height описывается отдельно.
+
+| Параметр                                  | Mobile             | Tablet             | Desktop            |
+| ----------------------------------------- | ------------------ | ------------------ | ------------------ |
+| Default frame                             | `2022:441`         | `2019:472`         | `2009:1646`        |
+| Ширина фрейма                             | 375                | 768                | 1440               |
+| Контент: x / y / width                    | 24 / 104 / 327     | 64 / 145 / 640     | 140 / 224 / 1157   |
+| Первая карточка                           | `2022:700`         | `2019:537`         | `2009:1658`        |
+| Карточка: width / height                  | 327 / 72           | 640 / 88           | 564 / 104          |
+| Карточка: padding / gap / radius          | 16 / 16 / 12       | 16 / 32 / 24       | 24 / 32 / 24       |
+| Буквенная подложка: size / radius         | 40 / 6             | 56 / 12            | 56 / 8             |
+| Gap списка / перед Submit                 | 16 / 16            | 24 / 32            | 16 / 32            |
+| Submit: узел                              | `2022:720`         | `2019:553`         | `2009:1674`        |
+| Submit: width / height / padding / radius | 327 / 56 / 16 / 12 | 640 / 92 / 32 / 24 | 564 / 92 / 32 / 24 |
+| Progress: узел                            | `2022:697`         | `2019:533`         | `2009:1654`        |
+| Progress: width / height / inset          | 327 / 16 / 4       | 640 / 16 / 4       | 465 / 16 / 4       |
+| Высота заполнения progress                | 8                  | 8                  | 8                  |
+| Номер вопроса: размер / line-height       | 14 / 1.5           | 20 / 1.5           | 20 / 1.5           |
+| Вопрос: размер / line-height              | 20 / 1.2           | 36 / 1.2           | 36 / 1.2           |
+| Ответ и Submit: размер / line-height      | 18 / 1             | 28 / 1             | 28 / 1             |
+| Подпись темы: узел группы                 | `2022:444`         | `2019:556`         | `2009:1677`        |
+| Подпись темы: badge / gap / текст         | 40 / 16 / 18       | 56 / 24 / 28       | 56 / 24 / 28       |
+
+Вопрос, ответы, Submit и подпись темы используют Rubik 500; номер вопроса — italic 400. Источники текста вопроса: `2022:696`, `2019:532`, `2009:1653`. В mobile между номером и вопросом 16 px, перед progress 24 px; tablet — 24 и 40 px. На desktop левый контейнер `2009:1650` имеет высоту 469 px, progress расположен на локальном y=453. Это геометрия образца, не требование фиксировать расстояние от любого вопроса до полосы. Radius progress track/fill сохраняются 999/104 px.
+
+Область значка проверена отдельно на карточках результата: mobile `2022:611` → slot `2022:616` размером 32×32; tablet `2019:835` → `2019:838` размером 40×40; desktop `2009:1944` → `2009:1947` размером 40×40. Источники подтверждают размеры, но постоянное пустое место в default — решение реализации. Цвета, графика и логика correct/wrong этим не утверждаются.
+
+### Экранное дополнение этапа 02: согласованная реализация
+
+- Светлая схема фиксирована. Один `main` содержит взаимоисключающие секции меню и вопроса. Видимость секций и подписи темы временно управляется `hidden`; правило скрытия не переопределяется Grid/Flex. Индикатор темы остаётся статическим.
+- Шапка вопроса в обычном размере шрифта начинается на y=0/40/83 px, контент на y=104/145/224 px. Верхний отступ оболочки меняется через `:has()` только при видимом вопросе. Подпись темы использует локальную декоративную иконку Accessibility; геометрия не задаёт фиксированную ширину текста для будущих тем.
+- Сохранены переходы 640/1200 px. Две колонки требуют также `quiz-layout` шириной от 67rem. Сетка: левая колонка до 29.0625rem, gap 8rem, правая занимает остаток. На viewport 1440 px она равна 567 px вместо 564 px источника. Это согласованное отклонение ради общего правого края оболочки, а не новое измерение Figma.
+- На desktop слева flex-column с gap 2.5rem, min-height 29.3125rem и автоматическим отступом progress. При росте вопроса блок растёт. Высота карточек не фиксируется: значения YAML — только образцы.
+- Пустой `aria-hidden`-slot присутствует в каждом label постоянно: 2rem на mobile, 2.5rem от tablet. Заполнение внутри слота не отнимает новую ширину у текста. Flex-wrap и минимум текста `min(4rem, 100%)` допускают перенос элементов при узком контейнере и крупном шрифте. Это не гарантия для произвольного пятого flex-элемента за пределами слота.
+- Выбор выполняется нативной radio-группой без прикладного JavaScript; визуальные буквы и пустые слоты не дублируют доступное имя. Кнопка Submit имеет `type="button"` до реализации подтверждения.
+- Статический пример берётся из JSON: вопрос 5 Accessibility, варианты `3:1`, `4.5:1`, `7:1`, `2:1`. Progress `value=4, max=10` обозначает уже подтверждённые ответы; текущий ещё не отправлен. Это согласованная демонстрация, не алгоритм и не копия случайной длины полосы Figma.
+
+### Экранное дополнение этапа 02: состояния и контраст
+
+| Состояние                | Принятое оформление                                              | Происхождение                                            |
+| ------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------- |
+| Default                  | Белая карточка, blue-900 текст; grey-50 badge, grey-500 буква    | Светлые default-экраны                                   |
+| Hover невыбранного radio | Только badge purple-100, буква blue-900                          | Согласованное дополнение, не отдельный Figma-вариант     |
+| Selected до отправки     | Внутренний контур 3 px purple-600, badge purple-600, буква white | Active экранов; inset-тень вместо изменения размеров     |
+| Focus radio и Submit     | Внешний outline 3 px blue-900, offset 4 px                       | Согласованное дополнение, независимо от selected         |
+| Submit default           | Purple-600 фон, white текст                                      | Светлые default-экраны                                   |
+| Submit hover             | Тот же фон и текст, внутренний белый контур 2 px                 | Согласованная замена низкоконтрастного осветления стенда |
+
+Hover действует только при `(hover: hover) and (pointer: fine)`; выбранный вариант не меняется от hover. Анимации отсутствуют. Контуры не меняют геометрию. Selection стенда — раскрытый правильный вариант после ошибочного выбора другого ответа, не `checked` до отправки. Исходный `submit-hover-active` сохранён как свойство стенда и не переименован в фактический hover приложения.
+
+Контраст пересчитан из исходных sRGB-пар без изменения HEX. Для перечисленного текста применяется консервативный порог 4.5:1; для контура — 3:1. Отношения округлены только для таблицы, сравнение выполняется до округления.
+
+| Пара                                          | Ratio    | Результат в указанной области |
+| --------------------------------------------- | -------- | ----------------------------- |
+| White / purple-600: selected-буква и Submit   | 4.908:1  | PASS                          |
+| Grey-500 / grey-50: default-буква             | 4.888:1  | PASS                          |
+| Blue-900 / purple-100: hover-буква            | 9.179:1  | PASS                          |
+| Blue-900 / grey-50: внешний focus на странице | 10.013:1 | PASS                          |
+| Blue-900 / blue-100: focus на паттерне        | 9.570:1  | PASS                          |
+| Blue-900 / white: focus рядом с карточкой     | 10.833:1 | PASS                          |
+
+Это проверка указанных пар, не сертификация доступности приложения. Проблемы correct/wrong и dark badge остаются открытыми. Новые `impl-*` роли и компоненты имеют в экспорте provenance типа `implementation-decision`, без фиктивных Figma node ID. Измерения `screen-question-*` ссылаются на реальные узлы страницы `1:3`, а не на source JSON стенда.
+
 ## Elevation & Depth
 
 Option, subject и score: `0 16px 40px 0 rgba(143,160,193,0.14)` в light, `0 16px 40px 0 rgba(49,62,81,0.14)` в dark. Submit использует light-тень в обоих показанных состояниях. Это CSS-округление ответа design context; точный исходный float светлой тени сохранён в JSON.
@@ -669,7 +840,7 @@ Dark toggle 160×60 и dark logo 285×88 содержат демонстраци
 
 ### Иконки и локальные ресурсы
 
-Изображения и Rubik уже находятся в `src/assets/`; для этой спецификации ничего не скачивается и не заменяется. Slot status icon — 40×40, внутренний glyph — 30×30. Строки JSON с иконками ещё требуют корректного подключения на этапе реализации. Не использовать screenshot макета как готовый интерфейс.
+Изображения и Rubik уже находятся в `src/assets/`; для этой спецификации ничего не скачивается и не заменяется. На стенде slot status icon — 40×40, внутренний glyph — 30×30. Экранное дополнение этапа 02 отдельно подтверждает mobile slot 32×32 и tablet/desktop slot 40×40. Строки JSON с иконками ещё требуют корректного подключения на этапе реализации. Не использовать screenshot макета как готовый интерфейс.
 
 ## Do's and Don'ts
 
@@ -692,3 +863,5 @@ Dark toggle 160×60 и dark logo 285×88 содержат демонстраци
 При экспорте экранного дополнения восстанавливаются также восемь ссылочных `color.screen-*` из YAML вместо разрешённых CLI литералов. Их provenance берётся из таблицы экранных ролей выше, отдельно от стенда. Проверить все прежние значения, типы, ссылки, lineHeight, курсив, компоненты, gap/border/shadow и provenance на сохранность; затем проверить новые alias и их источники. Старые `cli-lint.json` и `verification.json` относятся к исходному извлечению стенда; результаты повторной проверки дополнения описаны в `validation.md`.
 
 Для этапа 01 эта же процедура дополняется пятью новыми цветовыми alias и восемью `components.screen-start-*` из YAML. Provenance ссылается на страницу `1:3` и узлы таблиц, не на `source-tokens.json` стенда. Карточкам добавляются typed gap и ссылочная light-тень из измерений выше. Корневое `$extensions.org.frontend-quiz-app.start-screen` содержит отдельные таблицы измерений и согласованные решения; их источник — этот раздел DESIGN.md. Сырой CLI-экспорт хранится отдельно и сравнивается после восстановления прежних lineHeight, RGB, ссылок, компонентов и extensions. Исходные токены и их provenance должны сохраниться; изменение описания области охвата допустимо и проверяется отдельно.
+
+Для этапа 02 дополнительно экспортируются новые YAML-записи `components.screen-question-*`, `components.impl-question-*` и `color.impl-*`. На карточках восстанавливаются typed gap и ссылочная light-тень; у Submit — light-тень; группа `interaction` содержит отдельные typed color/width/offset контуров по таблице состояний без подмены фоновой тени. Геометрия источника не заменяется CSS-отклонениями. `$extensions.org.frontend-quiz-app.question-screen` хранит ссылки на фреймы и решения по сетке, скрытию, резерву и статическому примеру. Это производное представление данного раздела, не новый независимый источник токенов. Проверять все прежние записи на неизменность, новые значения — против YAML/таблиц, а каждый alias — на цель, тип и отсутствие циклов. Результаты рабочих сессий и приёмки сохраняются в локальном плане, не дописываются как отчёт в validation.md.

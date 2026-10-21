@@ -9,6 +9,19 @@
   <body class="quiz-page">
     <div class="quiz-shell">
       <header class="quiz-header">
+        <div class="quiz-header__subject" hidden>
+          <span class="quiz-header__subject-icon">
+            <img
+              class="quiz-header__subject-image"
+              src="/src/assets/images/icon-accessibility.svg"
+              width="40"
+              height="40"
+              alt=""
+              decoding="async"
+            />
+          </span>
+          <span class="quiz-header__subject-name">Accessibility</span>
+        </div>
         <div
           class="quiz-header__theme"
           role="img"
@@ -34,85 +47,201 @@
         </div>
       </header>
 
-      <main class="start-screen">
-        <div class="start-screen__welcome">
-          <h1 class="start-screen__title">
-            Welcome to the
-            <span class="start-screen__title-accent">Frontend Quiz!</span>
-          </h1>
-          <p class="start-screen__description">
-            Pick a subject to get started.
-          </p>
-        </div>
+      <main>
+        <section class="start-screen">
+          <div class="start-screen__welcome">
+            <h1 class="start-screen__title">
+              Welcome to the
+              <span class="start-screen__title-accent">Frontend Quiz!</span>
+            </h1>
+            <p class="start-screen__description">
+              Pick a subject to get started.
+            </p>
+          </div>
 
-        <ul class="start-screen__subjects" role="list">
-          <li class="start-screen__subject">
-            <button class="subject-card subject-card--html" type="button">
-              <span class="subject-card__icon">
-                <img
-                  class="subject-card__image"
-                  src="/src/assets/images/icon-html.svg"
-                  width="40"
-                  height="40"
-                  alt=""
-                  decoding="async"
-                />
-              </span>
-              <span class="subject-card__name">HTML</span>
-            </button>
-          </li>
+          <ul class="start-screen__subjects" role="list">
+            <li class="start-screen__subject">
+              <button class="subject-card subject-card--html" type="button">
+                <span class="subject-card__icon">
+                  <img
+                    class="subject-card__image"
+                    src="/src/assets/images/icon-html.svg"
+                    width="40"
+                    height="40"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <span class="subject-card__name">HTML</span>
+              </button>
+            </li>
 
-          <li class="start-screen__subject">
-            <button class="subject-card subject-card--css" type="button">
-              <span class="subject-card__icon">
-                <img
-                  class="subject-card__image"
-                  src="/src/assets/images/icon-css.svg"
-                  width="40"
-                  height="40"
-                  alt=""
-                  decoding="async"
-                />
-              </span>
-              <span class="subject-card__name">CSS</span>
-            </button>
-          </li>
+            <li class="start-screen__subject">
+              <button class="subject-card subject-card--css" type="button">
+                <span class="subject-card__icon">
+                  <img
+                    class="subject-card__image"
+                    src="/src/assets/images/icon-css.svg"
+                    width="40"
+                    height="40"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <span class="subject-card__name">CSS</span>
+              </button>
+            </li>
 
-          <li class="start-screen__subject">
-            <button class="subject-card subject-card--javascript" type="button">
-              <span class="subject-card__icon">
-                <img
-                  class="subject-card__image"
-                  src="/src/assets/images/icon-js.svg"
-                  width="40"
-                  height="40"
-                  alt=""
-                  decoding="async"
-                />
-              </span>
-              <span class="subject-card__name">JavaScript</span>
-            </button>
-          </li>
+            <li class="start-screen__subject">
+              <button
+                class="subject-card subject-card--javascript"
+                type="button"
+              >
+                <span class="subject-card__icon">
+                  <img
+                    class="subject-card__image"
+                    src="/src/assets/images/icon-js.svg"
+                    width="40"
+                    height="40"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <span class="subject-card__name">JavaScript</span>
+              </button>
+            </li>
 
-          <li class="start-screen__subject">
-            <button
-              class="subject-card subject-card--accessibility"
-              type="button"
+            <li class="start-screen__subject">
+              <button
+                class="subject-card subject-card--accessibility"
+                type="button"
+              >
+                <span class="subject-card__icon">
+                  <img
+                    class="subject-card__image"
+                    src="/src/assets/images/icon-accessibility.svg"
+                    width="40"
+                    height="40"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <span class="subject-card__name">Accessibility</span>
+              </button>
+            </li>
+          </ul>
+        </section>
+
+        <section class="question-screen" hidden>
+          <div class="question-screen__intro">
+            <div class="question-screen__question">
+              <p class="question-screen__number">Question 5 of 10</p>
+
+              <h1 class="question-screen__title">
+                Which of these color contrast ratios defines the minimum WCAG
+                2.1 Level AA requirement for normal text?
+              </h1>
+            </div>
+
+            <progress
+              class="question-screen__progress"
+              value="4"
+              max="10"
+              aria-label="Quiz progress: 4 of 10 answers submitted"
             >
-              <span class="subject-card__icon">
-                <img
-                  class="subject-card__image"
-                  src="/src/assets/images/icon-accessibility.svg"
-                  width="40"
-                  height="40"
-                  alt=""
-                  decoding="async"
-                />
-              </span>
-              <span class="subject-card__name">Accessibility</span>
-            </button>
-          </li>
-        </ul>
+              4 of 10 answers submitted
+            </progress>
+          </div>
+
+          <div class="question-screen__answers">
+            <fieldset class="answer-group">
+              <legend class="answer-group__legend">Choose one answer</legend>
+
+              <div class="answer-group__options">
+                <div class="answer-option">
+                  <input
+                    class="answer-option__input"
+                    type="radio"
+                    id="answer-a"
+                    name="question-answer"
+                    value="a"
+                  />
+                  <label class="answer-option__card" for="answer-a">
+                    <span class="answer-option__letter" aria-hidden="true"
+                      >A</span
+                    >
+                    <span class="answer-option__text">3:1</span>
+                    <span
+                      class="answer-option__status"
+                      aria-hidden="true"
+                    ></span>
+                  </label>
+                </div>
+
+                <div class="answer-option">
+                  <input
+                    class="answer-option__input"
+                    type="radio"
+                    id="answer-b"
+                    name="question-answer"
+                    value="b"
+                  />
+                  <label class="answer-option__card" for="answer-b">
+                    <span class="answer-option__letter" aria-hidden="true"
+                      >B</span
+                    >
+                    <span class="answer-option__text">4.5:1</span>
+                    <span
+                      class="answer-option__status"
+                      aria-hidden="true"
+                    ></span>
+                  </label>
+                </div>
+
+                <div class="answer-option">
+                  <input
+                    class="answer-option__input"
+                    type="radio"
+                    id="answer-c"
+                    name="question-answer"
+                    value="c"
+                  />
+                  <label class="answer-option__card" for="answer-c">
+                    <span class="answer-option__letter" aria-hidden="true"
+                      >C</span
+                    >
+                    <span class="answer-option__text">7:1</span>
+                    <span
+                      class="answer-option__status"
+                      aria-hidden="true"
+                    ></span>
+                  </label>
+                </div>
+
+                <div class="answer-option">
+                  <input
+                    class="answer-option__input"
+                    type="radio"
+                    id="answer-d"
+                    name="question-answer"
+                    value="d"
+                  />
+                  <label class="answer-option__card" for="answer-d">
+                    <span class="answer-option__letter" aria-hidden="true"
+                      >D</span
+                    >
+                    <span class="answer-option__text">2:1</span>
+                    <span
+                      class="answer-option__status"
+                      aria-hidden="true"
+                    ></span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <button class="submit-button" type="button">Submit Answer</button>
+          </div>
+        </section>
       </main>
     </div>
     <script type="module" src="/src/main.ts"></script>

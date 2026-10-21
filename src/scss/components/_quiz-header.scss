@@ -2,10 +2,44 @@
 
 .quiz-header {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
   justify-content: flex-end;
   min-height: 4.5rem;
   padding-block: 1rem;
+
+  &__subject {
+    display: flex;
+    flex: 0 1 auto;
+    gap: 1rem;
+    align-items: center;
+    min-width: 0;
+    margin-inline-end: auto;
+  }
+
+  &__subject-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--color-purple-100);
+    border-radius: 4px;
+  }
+
+  &__subject-image {
+    width: calc(100% * 5 / 7);
+  }
+
+  &__subject-name {
+    min-width: 0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
 
   &__theme {
     display: flex;
@@ -40,6 +74,20 @@
   @include mixins.tablet {
     min-height: 1.75rem;
     padding-block: 0;
+
+    &__subject {
+      gap: 1.5rem;
+    }
+
+    &__subject-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 8px;
+    }
+
+    &__subject-name {
+      font-size: 1.75rem;
+    }
 
     &__theme {
       gap: 1rem;

@@ -1,0 +1,104 @@
+@use '../abstracts/mixins';
+
+.question-screen {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  margin-block-start: 2rem;
+
+  &__intro {
+    min-width: 0;
+  }
+
+  &__answers {
+    display: grid;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+  &__number {
+    margin: 0;
+    font-size: 0.875rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  &__title {
+    margin: 1rem 0 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  &__progress {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    padding: 0.25rem;
+    margin-block-start: 1.5rem;
+    appearance: none;
+    background-color: var(--color-surface);
+    border: 0;
+    border-radius: 999px;
+
+    &::-webkit-progress-bar {
+      background-color: transparent;
+      border-radius: 104px;
+    }
+
+    &::-webkit-progress-value {
+      background-color: var(--color-accent);
+      border-radius: 104px;
+    }
+
+    &::-moz-progress-bar {
+      background-color: var(--color-accent);
+      border-radius: 104px;
+    }
+  }
+
+  @include mixins.tablet {
+    margin-block-start: 3.0625rem;
+
+    &__answers {
+      gap: 2rem;
+    }
+
+    &__number {
+      font-size: 1.25rem;
+    }
+
+    &__title {
+      margin-block-start: 1.5rem;
+      font-size: 2.25rem;
+    }
+
+    &__progress {
+      margin-block-start: 2.5rem;
+    }
+  }
+
+  @include mixins.desktop {
+    margin-block-start: 5.3125rem;
+
+    @container quiz-layout (width >= 67rem) {
+      grid-template-columns: minmax(0, 29.0625rem) minmax(0, 1fr);
+      gap: 8rem;
+      align-items: start;
+
+      &__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-height: 29.3125rem;
+      }
+
+      &__progress {
+        margin-block-start: auto;
+      }
+    }
+  }
+}

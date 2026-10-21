@@ -32,3 +32,17 @@
     padding-block-start: 6.0625rem;
   }
 }
+
+.quiz-shell:has(.question-screen:not([hidden])) {
+  @include mixins.tablet {
+    padding-block-start: 2.5rem;
+  }
+
+  @include mixins.desktop {
+    padding-block-start: 5.1875rem;
+  }
+}
+
+.quiz-shell [hidden] {
+  display: none;
+}
