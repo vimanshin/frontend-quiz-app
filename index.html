@@ -9,10 +9,11 @@
   <body class="quiz-page">
     <div class="quiz-shell">
       <header class="quiz-header">
-        <div class="quiz-header__subject" hidden>
+        <div class="quiz-header__subject" data-js="subject" hidden>
           <span class="quiz-header__subject-icon">
             <img
               class="quiz-header__subject-image"
+              data-js="subject-image"
               src="/src/assets/images/icon-accessibility.svg"
               width="40"
               height="40"
@@ -20,7 +21,9 @@
               decoding="async"
             />
           </span>
-          <span class="quiz-header__subject-name">Accessibility</span>
+          <span class="quiz-header__subject-name" data-js="subject-name">
+            Accessibility
+          </span>
         </div>
         <div
           class="quiz-header__theme"
@@ -48,7 +51,7 @@
       </header>
 
       <main>
-        <section class="start-screen">
+        <section class="start-screen" data-js="start-screen">
           <div class="start-screen__welcome">
             <h1 class="start-screen__title">
               Welcome to the
@@ -61,7 +64,12 @@
 
           <ul class="start-screen__subjects" role="list">
             <li class="start-screen__subject">
-              <button class="subject-card subject-card--html" type="button">
+              <button
+                class="subject-card subject-card--html"
+                type="button"
+                data-js="subject-button"
+                data-subject="html"
+              >
                 <span class="subject-card__icon">
                   <img
                     class="subject-card__image"
@@ -77,7 +85,12 @@
             </li>
 
             <li class="start-screen__subject">
-              <button class="subject-card subject-card--css" type="button">
+              <button
+                class="subject-card subject-card--css"
+                type="button"
+                data-js="subject-button"
+                data-subject="css"
+              >
                 <span class="subject-card__icon">
                   <img
                     class="subject-card__image"
@@ -96,6 +109,8 @@
               <button
                 class="subject-card subject-card--javascript"
                 type="button"
+                data-js="subject-button"
+                data-subject="javascript"
               >
                 <span class="subject-card__icon">
                   <img
@@ -115,6 +130,8 @@
               <button
                 class="subject-card subject-card--accessibility"
                 type="button"
+                data-js="subject-button"
+                data-subject="accessibility"
               >
                 <span class="subject-card__icon">
                   <img
@@ -132,12 +149,18 @@
           </ul>
         </section>
 
-        <section class="question-screen" hidden>
+        <section class="question-screen" data-js="question-screen" hidden>
           <div class="question-screen__intro">
             <div class="question-screen__question">
-              <p class="question-screen__number">Question 5 of 10</p>
+              <p class="question-screen__number" data-js="question-number">
+                Question 5 of 10
+              </p>
 
-              <h1 class="question-screen__title">
+              <h1
+                class="question-screen__title"
+                data-js="question-title"
+                tabindex="-1"
+              >
                 Which of these color contrast ratios defines the minimum WCAG
                 2.1 Level AA requirement for normal text?
               </h1>
@@ -145,6 +168,7 @@
 
             <progress
               class="question-screen__progress"
+              data-js="quiz-progress"
               value="4"
               max="10"
               aria-label="Quiz progress: 4 of 10 answers submitted"
@@ -165,12 +189,15 @@
                     id="answer-a"
                     name="question-answer"
                     value="a"
+                    data-js="answer-input"
                   />
                   <label class="answer-option__card" for="answer-a">
                     <span class="answer-option__letter" aria-hidden="true"
                       >A</span
                     >
-                    <span class="answer-option__text">3:1</span>
+                    <span class="answer-option__text" data-js="answer-text"
+                      >3:1</span
+                    >
                     <span
                       class="answer-option__status"
                       aria-hidden="true"
@@ -185,12 +212,15 @@
                     id="answer-b"
                     name="question-answer"
                     value="b"
+                    data-js="answer-input"
                   />
                   <label class="answer-option__card" for="answer-b">
                     <span class="answer-option__letter" aria-hidden="true"
                       >B</span
                     >
-                    <span class="answer-option__text">4.5:1</span>
+                    <span class="answer-option__text" data-js="answer-text"
+                      >4.5:1</span
+                    >
                     <span
                       class="answer-option__status"
                       aria-hidden="true"
@@ -205,12 +235,15 @@
                     id="answer-c"
                     name="question-answer"
                     value="c"
+                    data-js="answer-input"
                   />
                   <label class="answer-option__card" for="answer-c">
                     <span class="answer-option__letter" aria-hidden="true"
                       >C</span
                     >
-                    <span class="answer-option__text">7:1</span>
+                    <span class="answer-option__text" data-js="answer-text"
+                      >7:1</span
+                    >
                     <span
                       class="answer-option__status"
                       aria-hidden="true"
@@ -225,12 +258,15 @@
                     id="answer-d"
                     name="question-answer"
                     value="d"
+                    data-js="answer-input"
                   />
                   <label class="answer-option__card" for="answer-d">
                     <span class="answer-option__letter" aria-hidden="true"
                       >D</span
                     >
-                    <span class="answer-option__text">2:1</span>
+                    <span class="answer-option__text" data-js="answer-text"
+                      >2:1</span
+                    >
                     <span
                       class="answer-option__status"
                       aria-hidden="true"

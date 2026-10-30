@@ -16,6 +16,22 @@
     align-items: center;
     min-width: 0;
     margin-inline-end: auto;
+
+    &[data-subject='html'] {
+      --subject-icon-background: var(--color-orange-50);
+    }
+
+    &[data-subject='css'] {
+      --subject-icon-background: var(--color-green-100);
+    }
+
+    &[data-subject='javascript'] {
+      --subject-icon-background: var(--color-blue-50);
+    }
+
+    &[data-subject='accessibility'] {
+      --subject-icon-background: var(--color-purple-100);
+    }
   }
 
   &__subject-icon {
@@ -25,7 +41,7 @@
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    background-color: var(--color-purple-100);
+    background-color: var(--subject-icon-background, var(--color-purple-100));
     border-radius: 4px;
   }
 
