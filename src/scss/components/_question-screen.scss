@@ -16,6 +16,36 @@
     min-width: 0;
   }
 
+  &__error {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-error);
+    overflow-wrap: anywhere;
+
+    &:not(:empty) {
+      margin-block-start: 1rem;
+    }
+
+    &:not(:empty)::before {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      content: '';
+      background-image: url('../../assets/images/icon-error.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__feedback {
+    @include mixins.visually-hidden;
+  }
+
   &__number {
     margin: 0;
     font-size: 0.875rem;
@@ -65,6 +95,21 @@
 
     &__answers {
       gap: 2rem;
+    }
+
+    &__error {
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    &__error:not(:empty) {
+      margin-block-start: 2rem;
+    }
+
+    &__error:not(:empty)::before {
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
     &__number {

@@ -182,7 +182,7 @@
               <legend class="answer-group__legend">Choose one answer</legend>
 
               <div class="answer-group__options">
-                <div class="answer-option">
+                <div class="answer-option" data-js="answer-option">
                   <input
                     class="answer-option__input"
                     type="radio"
@@ -205,7 +205,7 @@
                   </label>
                 </div>
 
-                <div class="answer-option">
+                <div class="answer-option" data-js="answer-option">
                   <input
                     class="answer-option__input"
                     type="radio"
@@ -228,7 +228,7 @@
                   </label>
                 </div>
 
-                <div class="answer-option">
+                <div class="answer-option" data-js="answer-option">
                   <input
                     class="answer-option__input"
                     type="radio"
@@ -251,7 +251,7 @@
                   </label>
                 </div>
 
-                <div class="answer-option">
+                <div class="answer-option" data-js="answer-option">
                   <input
                     class="answer-option__input"
                     type="radio"
@@ -275,7 +275,30 @@
                 </div>
               </div>
             </fieldset>
-            <button class="submit-button" type="button">Submit Answer</button>
+            <div class="question-screen__actions">
+              <button
+                class="submit-button"
+                type="button"
+                data-js="submit-answer"
+              >
+                Submit Answer
+              </button>
+
+              <div
+                class="question-screen__error"
+                id="answer-error"
+                data-js="answer-error"
+                role="alert"
+                aria-atomic="true"
+              ></div>
+
+              <div
+                class="question-screen__feedback"
+                data-js="answer-feedback"
+                role="status"
+                aria-atomic="true"
+              ></div>
+            </div>
           </div>
         </section>
       </main>

@@ -17,6 +17,22 @@ type Quiz = {
   questions: Question[];
 };
 
+type AnswerResult = {
+  selectedIndex: number;
+  isCorrect: boolean;
+};
+
+type QuestionState = {
+  question: Question;
+  totalQuestions: number;
+  selectedIndex: number | null;
+  hasSelectionError: boolean;
+  result: AnswerResult | null;
+};
+
+const ANSWER_VALUES = ['a', 'b', 'c', 'd'];
+let currentQuestionState: QuestionState | null = null;
+
 const quizzes: Quiz[] = quizData.quizzes;
 
 const subjects = [
@@ -119,6 +135,17 @@ function prepareFirstQuestion(quiz: Quiz): void {
   progress.value = 0;
   progress.textContent = progressText;
   progress.setAttribute('aria-label', `Quiz progress: ${progressText}`);
+
+  currentQuestionState = {
+    question: firstQuestion,
+    totalQuestions,
+    selectedIndex: null,
+    hasSelectionError: false,
+    result: null,
+  };
+
+  renderSelectionError(currentQuestionState.hasSelectionError);
+  renderAnswerStates(currentQuestionState);
 }
 
 // Функция: обновляет название, иконку и тему оформления подписи в шапке
@@ -228,3 +255,218 @@ const subjectButtons = document.querySelectorAll<HTMLButtonElement>(
 for (const button of subjectButtons) {
   button.addEventListener('click', handleSubjectClick);
 }
+
+// Функция: назначает карточкам оформление по подтверждённому результату
+// Принимает: состояние текущего вопроса
+// Возвращает: ничего
+function renderAnswerStates(state: QuestionState): void {
+  const answerOptions = document.querySelectorAll<HTMLElement>(
+    '[data-js="answer-option"]'
+  );
+
+  if (answerOptions.length !== state.question.options.length) {
+    throw new Error('Количество карточек не совпадает с количеством вариантов');
+  }
+
+  const correctIndex = state.question.options.indexOf(state.question.answer);
+
+  if (correctIndex === -1) {
+    throw new Error('Правильный ответ отсутствует среди вариантов');
+  }
+
+  const result = state.result;
+
+  for (const [index, answerOption] of answerOptions.entries()) {
+    answerOption.classList.remove(
+      'answer-option--correct',
+      'answer-option--wrong',
+      'answer-option--revealed'
+    );
+
+    if (result === null) {
+      continue;
+    }
+
+    if (index === result.selectedIndex) {
+      answerOption.classList.add(
+        result.isCorrect ? 'answer-option--correct' : 'answer-option--wrong'
+      );
+    } else if (!result.isCorrect && index === correctIndex) {
+      answerOption.classList.add('answer-option--revealed');
+    }
+  }
+}
+
+// Функция: отменяет попытку изменить уже подтверждённый ответ
+// Принимает: событие клика или нажатия клавиши на radio
+// Возвращает: ничего
+function preventConfirmedAnswerChange(event: Event): void {
+  const state = currentQuestionState;
+
+  if (!state || state.result === null) {
+    return;
+  }
+
+  if (event.type === 'click') {
+    event.preventDefault();
+    return;
+  }
+
+  if (!(event instanceof KeyboardEvent)) {
+    return;
+  }
+
+  const selectionKeys = [
+    ' ',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'Home',
+    'End',
+  ];
+
+  if (selectionKeys.includes(event.key)) {
+    event.preventDefault();
+  }
+}
+
+// Функция: сохраняет выбранный вариант в состоянии текущего вопроса
+// Принимает: событие изменения radio
+// Возвращает: ничего
+function handleAnswerChange(event: Event): void {
+  const input = event.currentTarget;
+  const state = currentQuestionState;
+
+  if (!(input instanceof HTMLInputElement) || !state) {
+    return;
+  }
+
+  if (state.result !== null) {
+    const confirmedValue = ANSWER_VALUES[state.result.selectedIndex];
+
+    if (confirmedValue === undefined) {
+      throw new Error('Не найден подтверждённый вариант ответа');
+    }
+
+    for (const answerInput of answerInputs) {
+      answerInput.checked = answerInput.value === confirmedValue;
+    }
+
+    return;
+  }
+
+  if (!input.checked) {
+    return;
+  }
+
+  const selectedIndex = ANSWER_VALUES.indexOf(input.value);
+
+  if (
+    selectedIndex === -1 ||
+    state.question.options[selectedIndex] === undefined
+  ) {
+    throw new Error('Не найден вариант ответа для выбранного radio');
+  }
+
+  state.selectedIndex = selectedIndex;
+  state.hasSelectionError = false;
+  renderSelectionError(state.hasSelectionError);
+}
+
+const answerInputs = document.querySelectorAll<HTMLInputElement>(
+  '[data-js="answer-input"]'
+);
+
+for (const input of answerInputs) {
+  input.addEventListener('change', handleAnswerChange);
+  input.addEventListener('click', preventConfirmedAnswerChange);
+  input.addEventListener('keydown', preventConfirmedAnswerChange);
+}
+
+// Функция: показывает или очищает сообщение об отсутствии выбора
+// Принимает: нужно ли показывать ошибку
+// Возвращает: ничего
+function renderSelectionError(hasError: boolean): void {
+  const errorMessage = document.querySelector<HTMLElement>(
+    '[data-js="answer-error"]'
+  );
+
+  if (!errorMessage) {
+    throw new Error('Не найден контейнер ошибки выбора');
+  }
+
+  errorMessage.textContent = hasError ? 'Please select an answer' : '';
+}
+
+// Функция: проверяет ответ и фиксирует результат текущего вопроса
+// Принимает: ничего
+// Возвращает: ничего
+function handleSubmitAnswer(): void {
+  const state = currentQuestionState;
+
+  if (!state || state.result !== null) {
+    return;
+  }
+
+  state.hasSelectionError = state.selectedIndex === null;
+  renderSelectionError(state.hasSelectionError);
+
+  if (state.selectedIndex === null) {
+    return;
+  }
+
+  const selectedOption = state.question.options[state.selectedIndex];
+
+  if (selectedOption === undefined) {
+    throw new Error('Не найден выбранный вариант ответа');
+  }
+
+  const button = document.querySelector<HTMLButtonElement>(
+    '[data-js="submit-answer"]'
+  );
+  const feedback = document.querySelector<HTMLElement>(
+    '[data-js="answer-feedback"]'
+  );
+  const progress = document.querySelector<HTMLProgressElement>(
+    '[data-js="quiz-progress"]'
+  );
+
+  if (!button || !feedback || !progress) {
+    throw new Error('Не найдены элементы для отображения результата');
+  }
+
+  state.result = {
+    selectedIndex: state.selectedIndex,
+    isCorrect: selectedOption === state.question.answer,
+  };
+
+  renderAnswerStates(state);
+
+  for (const input of answerInputs) {
+    input.setAttribute('aria-disabled', 'true');
+  }
+
+  button.setAttribute('aria-disabled', 'true');
+  button.textContent = 'Answer submitted';
+
+  const progressText = `1 of ${state.totalQuestions} answers submitted`;
+  progress.value = 1;
+  progress.textContent = progressText;
+  progress.setAttribute('aria-label', `Quiz progress: ${progressText}`);
+
+  const outcome = state.result.isCorrect
+    ? 'Correct answer.'
+    : 'Incorrect answer.';
+  feedback.textContent = `${outcome} Correct answer: ${state.question.answer}. ${progressText}.`;
+}
+
+const submitButton = document.querySelector<HTMLButtonElement>(
+  '[data-js="submit-answer"]'
+);
+
+if (!submitButton) {
+  throw new Error('Не найдена кнопка подтверждения ответа');
+}
+
+submitButton.addEventListener('click', handleSubmitAnswer);

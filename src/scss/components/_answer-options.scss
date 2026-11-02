@@ -80,9 +80,48 @@
     width: 2rem;
     height: 2rem;
     margin-inline-start: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
-  &__input:checked + &__card {
+  &--correct &__card {
+    --answer-letter-background: var(--color-correct);
+    --answer-letter-color: var(--color-white);
+
+    box-shadow:
+      inset 0 0 0 3px var(--color-correct),
+      var(--shadow-card);
+  }
+
+  &--wrong &__card {
+    --answer-letter-background: var(--color-wrong);
+    --answer-letter-color: var(--color-white);
+
+    box-shadow:
+      inset 0 0 0 3px var(--color-wrong),
+      var(--shadow-card);
+  }
+
+  &--correct &__status,
+  &--revealed &__status {
+    background-image: url('../../assets/images/icon-correct.svg');
+  }
+
+  &--wrong &__status {
+    background-image: url('../../assets/images/icon-incorrect.svg');
+  }
+
+  &__input:focus-visible + &__card {
+    outline: 3px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  &__input[aria-disabled='true'] + &__card {
+    cursor: default;
+  }
+
+  &__input:checked:not([aria-disabled='true']) + &__card {
     --answer-letter-background: var(--color-accent);
     --answer-letter-color: var(--color-white);
 
@@ -91,13 +130,8 @@
       var(--shadow-card);
   }
 
-  &__input:focus-visible + &__card {
-    outline: 3px solid var(--color-text);
-    outline-offset: 4px;
-  }
-
   @media (hover: hover) and (pointer: fine) {
-    &__input:not(:checked) + &__card:hover {
+    &__input:not(:checked, [aria-disabled='true']) + &__card:hover {
       --answer-letter-background: var(--color-purple-100);
       --answer-letter-color: var(--color-text);
     }
