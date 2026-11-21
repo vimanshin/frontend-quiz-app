@@ -80,14 +80,14 @@
     width: 2rem;
     height: 2rem;
     margin-inline-start: auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
   }
 
   &--correct &__card {
     --answer-letter-background: var(--color-correct);
-    --answer-letter-color: var(--color-white);
+    --answer-letter-color: var(--color-correct-letter, var(--color-white));
 
     box-shadow:
       inset 0 0 0 3px var(--color-correct),
@@ -96,7 +96,7 @@
 
   &--wrong &__card {
     --answer-letter-background: var(--color-wrong);
-    --answer-letter-color: var(--color-white);
+    --answer-letter-color: var(--color-wrong-letter, var(--color-white));
 
     box-shadow:
       inset 0 0 0 3px var(--color-wrong),
@@ -105,11 +105,13 @@
 
   &--correct &__status,
   &--revealed &__status {
-    background-image: url('../../assets/images/icon-correct.svg');
+    background-color: var(--color-correct);
+    mask-image: url('../../assets/images/icon-correct.svg');
   }
 
   &--wrong &__status {
-    background-image: url('../../assets/images/icon-incorrect.svg');
+    background-color: var(--color-wrong);
+    mask-image: url('../../assets/images/icon-incorrect.svg');
   }
 
   &__input:focus-visible + &__card {
@@ -126,14 +128,14 @@
     --answer-letter-color: var(--color-white);
 
     box-shadow:
-      inset 0 0 0 3px var(--color-accent),
+      inset 0 0 0 3px var(--color-accent-indicator, var(--color-accent)),
       var(--shadow-card);
   }
 
   @media (hover: hover) and (pointer: fine) {
     &__input:not(:checked, [aria-disabled='true']) + &__card:hover {
       --answer-letter-background: var(--color-purple-100);
-      --answer-letter-color: var(--color-text);
+      --answer-letter-color: var(--color-blue-900);
     }
   }
 

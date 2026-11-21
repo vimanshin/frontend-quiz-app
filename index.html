@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,29 +25,24 @@
             Accessibility
           </span>
         </div>
-        <div
+        <button
           class="quiz-header__theme"
-          role="img"
-          aria-label="Light theme. Theme switching is not available yet."
+          type="button"
+          role="switch"
+          aria-label="Dark theme"
+          aria-checked="false"
+          data-js="theme-toggle"
         >
-          <img
-            class="quiz-header__theme-icon"
-            src="/src/assets/images/icon-sun-dark.svg"
-            width="24"
-            height="24"
-            alt=""
-            decoding="async"
-          />
+          <span
+            class="quiz-header__theme-icon quiz-header__theme-icon--sun"
+            aria-hidden="true"
+          ></span>
           <span class="quiz-header__theme-track" aria-hidden="true"></span>
-          <img
-            class="quiz-header__theme-icon"
-            src="/src/assets/images/icon-moon-dark.svg"
-            width="24"
-            height="24"
-            alt=""
-            decoding="async"
-          />
-        </div>
+          <span
+            class="quiz-header__theme-icon quiz-header__theme-icon--moon"
+            aria-hidden="true"
+          ></span>
+        </button>
       </header>
 
       <main>

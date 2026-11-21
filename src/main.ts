@@ -1,4 +1,5 @@
 import '@/style.scss';
+import '@/theme';
 import quizData from '@/data/data.json';
 import htmlIconUrl from '@/assets/images/icon-html.svg';
 import cssIconUrl from '@/assets/images/icon-css.svg';

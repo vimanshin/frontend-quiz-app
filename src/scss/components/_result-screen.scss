@@ -1,6 +1,8 @@
 @use '../abstracts/mixins';
 
 .result-screen {
+  --shadow-action: var(--shadow-card);
+
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
@@ -100,4 +102,8 @@
       align-items: start;
     }
   }
+}
+
+:root[data-theme='dark'] .result-screen__total {
+  font-weight: 400;
 }

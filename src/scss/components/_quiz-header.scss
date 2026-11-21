@@ -61,11 +61,32 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    min-height: 1.5rem;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-radius: 0.5rem;
+
+    &:focus-visible {
+      outline: 3px solid var(--color-text);
+      outline-offset: 4px;
+    }
   }
 
   &__theme-icon {
     width: 1rem;
     height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--sun {
+      background-image: url('../../assets/images/icon-sun-dark.svg');
+    }
+
+    &--moon {
+      background-image: url('../../assets/images/icon-moon-dark.svg');
+    }
   }
 
   &__theme-track {
@@ -123,5 +144,23 @@
         height: 1.25rem;
       }
     }
+  }
+}
+
+:root[data-theme='dark'] .quiz-header {
+  &__theme-icon--sun {
+    background-image: url('../../assets/images/icon-sun-light.svg');
+  }
+
+  &__theme-icon--moon {
+    background-image: url('../../assets/images/icon-moon-light.svg');
+  }
+
+  &__theme-track {
+    outline: 1px solid var(--color-accent-indicator);
+  }
+
+  &__theme-track::before {
+    inset-inline: auto 0.25rem;
   }
 }

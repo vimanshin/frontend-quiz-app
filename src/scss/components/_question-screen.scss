@@ -36,9 +36,10 @@
       width: 2rem;
       height: 2rem;
       content: '';
-      background-image: url('../../assets/images/icon-error.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
+      background-color: var(--color-error-icon);
+      mask-image: url('../../assets/images/icon-error.svg');
+      mask-repeat: no-repeat;
+      mask-size: contain;
     }
   }
 
@@ -80,12 +81,12 @@
     }
 
     &::-webkit-progress-value {
-      background-color: var(--color-accent);
+      background-color: var(--color-accent-indicator, var(--color-accent));
       border-radius: 104px;
     }
 
     &::-moz-progress-bar {
-      background-color: var(--color-accent);
+      background-color: var(--color-accent-indicator, var(--color-accent));
       border-radius: 104px;
     }
   }
