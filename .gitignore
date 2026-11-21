@@ -60,6 +60,7 @@ Thumbs.db
 .claude/settings.local.json
 AGENTS.override.md
 .playwright-mcp/
+/.awb/session-mcp/genui-library.md
 
 # AGENTS.md, .agents/ и .codex/ — общие правила проекта, входят в Git.
 # Личные отчёты и справочники исключены отдельно через .git/info/exclude.

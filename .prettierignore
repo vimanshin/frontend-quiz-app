@@ -2,6 +2,7 @@
 node_modules
 dist
 .playwright-mcp
+/.awb/session-mcp/genui-library.md
 package-lock.json
 
 # SVG в public отдаются как есть, форматирование ломает минификацию
