@@ -45,9 +45,8 @@ const getAssetOutputPath = (assetInfo: AssetInfo): string => {
 };
 
 export default defineConfig({
-  // Базовый путь сайта. Для деплоя в подпапку (например, GitHub Pages)
-  // поменяйте на '/имя-репозитория/' — иначе ссылки вида /icons.svg не найдутся.
-  base: '/',
+  // Один статический билд работает и в корне, и в /frontend-quiz-app/ на Pages.
+  base: './',
 
   plugins: [
     ViteImageOptimizer({

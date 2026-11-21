@@ -28,6 +28,10 @@
     min-width: 0;
   }
 
+  .submit-button {
+    scroll-margin-block: 7px;
+  }
+
   &__card {
     display: flex;
     flex-direction: column;

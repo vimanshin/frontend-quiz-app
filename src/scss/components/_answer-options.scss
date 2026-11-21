@@ -117,6 +117,7 @@
   &__input:focus-visible + &__card {
     outline: 3px solid var(--color-text);
     outline-offset: 4px;
+    scroll-margin-block: 7px;
   }
 
   &__input[aria-disabled='true'] + &__card {
@@ -130,6 +131,13 @@
     box-shadow:
       inset 0 0 0 3px var(--color-accent-indicator, var(--color-accent)),
       var(--shadow-card);
+  }
+
+  @media (forced-colors: active) {
+    &__input:checked + &__card &__letter {
+      outline: 3px solid Highlight;
+      outline-offset: -3px;
+    }
   }
 
   @media (hover: hover) and (pointer: fine) {

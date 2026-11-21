@@ -516,7 +516,9 @@ function handleQuizAction(event: MouseEvent): void {
   submitButton.textContent = hasNext ? 'Next Question' : 'Show Results';
   // Повторный Enter не должен активировать новое действие до перехода Tab.
   if (event.detail === 0) {
-    answerInputs[state.selectedIndex]?.focus({ preventScroll: true });
+    const selectedInput = answerInputs[state.selectedIndex];
+    selectedInput?.focus({ preventScroll: true });
+    selectedInput?.labels?.[0]?.scrollIntoView({ block: 'nearest' });
   }
 
   const progressText = renderProgress(run, state);
