@@ -24,13 +24,20 @@ type AnswerResult = {
 
 type QuestionState = {
   question: Question;
-  totalQuestions: number;
+
   selectedIndex: number | null;
   hasSelectionError: boolean;
   result: AnswerResult | null;
 };
 
+type QuizRun = {
+  quiz: Quiz;
+  questionIndex: number;
+  score: number;
+};
+
 const ANSWER_VALUES = ['a', 'b', 'c', 'd'];
+let currentRun: QuizRun | null = null;
 let currentQuestionState: QuestionState | null = null;
 
 const quizzes: Quiz[] = quizData.quizzes;
@@ -62,8 +69,8 @@ type Subject = (typeof subjects)[number];
 
 // Функция: подставляет текст вопроса и вариантов в готовую разметку
 // Принимает: вопрос из данных квиза
-// Возвращает: ничего
-function renderQuestion(question: Question): void {
+// Возвращает: заголовок для перевода фокуса
+function renderQuestion(question: Question): HTMLElement {
   const questionTitle = document.querySelector<HTMLElement>(
     '[data-js="question-title"]'
   );
@@ -90,55 +97,63 @@ function renderQuestion(question: Question): void {
   }
 
   questionTitle.textContent = question.question;
+  return questionTitle;
 }
 
-// Функция: готовит первый вопрос квиза без выбранного ответа
-// Принимает: квиз, первый вопрос которого нужно подготовить
-// Возвращает: ничего
-function prepareFirstQuestion(quiz: Quiz): void {
-  const firstQuestion = quiz.questions[0];
-
-  if (!firstQuestion) {
-    throw new Error('В выбранном квизе нет вопросов');
-  }
-
-  const questionNumber = document.querySelector<HTMLElement>(
-    '[data-js="question-number"]'
-  );
+// Функция: синхронизирует индикатор с числом подтверждённых ответов
+// Принимает: прохождение и состояние открытого вопроса
+// Возвращает: описание прогресса для сообщения о результате
+function renderProgress(run: QuizRun, state: QuestionState): string {
   const progress = document.querySelector<HTMLProgressElement>(
     '[data-js="quiz-progress"]'
   );
-  const answerInputs = document.querySelectorAll<HTMLInputElement>(
-    '[data-js="answer-input"]'
-  );
-
-  if (!questionNumber || !progress) {
-    throw new Error('Не найден счётчик вопроса или индикатор прогресса');
+  if (!progress) {
+    throw new Error('Не найден индикатор прогресса');
   }
 
-  if (answerInputs.length !== firstQuestion.options.length) {
+  const total = run.quiz.questions.length;
+  const submitted = run.questionIndex + (state.result === null ? 0 : 1);
+  const text = `${submitted} of ${total} answers submitted`;
+  progress.max = total;
+  progress.value = submitted;
+  progress.textContent = text;
+  progress.setAttribute('aria-label', `Quiz progress: ${text}`);
+  return text;
+}
+
+// Функция: открывает вопрос с чистыми вариантами и переводит фокус на заголовок
+// Принимает: текущее прохождение с индексом открываемого вопроса
+// Возвращает: ничего
+function openQuestion(run: QuizRun): void {
+  const question = run.quiz.questions[run.questionIndex];
+  if (!question) {
+    throw new Error('Вопрос не найден в выбранном квизе');
+  }
+  const questionNumber = document.querySelector<HTMLElement>(
+    '[data-js="question-number"]'
+  );
+  if (!questionNumber || !submitButton || !feedback) {
+    throw new Error('Не найдены элементы экрана вопроса');
+  }
+
+  if (answerInputs.length !== question.options.length) {
     throw new Error('Количество radio не совпадает с количеством вариантов');
   }
 
-  renderQuestion(firstQuestion);
+  const title = renderQuestion(question);
 
   for (const answerInput of answerInputs) {
     answerInput.checked = false;
+    answerInput.removeAttribute('aria-disabled');
   }
 
-  const totalQuestions = quiz.questions.length;
-  const progressText = `0 of ${totalQuestions} answers submitted`;
-
-  questionNumber.textContent = `Question 1 of ${totalQuestions}`;
-
-  progress.max = totalQuestions;
-  progress.value = 0;
-  progress.textContent = progressText;
-  progress.setAttribute('aria-label', `Quiz progress: ${progressText}`);
+  questionNumber.textContent = `Question ${run.questionIndex + 1} of ${run.quiz.questions.length}`;
+  submitButton.removeAttribute('aria-disabled');
+  submitButton.textContent = 'Submit Answer';
+  feedback.textContent = '';
 
   currentQuestionState = {
-    question: firstQuestion,
-    totalQuestions,
+    question,
     selectedIndex: null,
     hasSelectionError: false,
     result: null,
@@ -146,6 +161,8 @@ function prepareFirstQuestion(quiz: Quiz): void {
 
   renderSelectionError(currentQuestionState.hasSelectionError);
   renderAnswerStates(currentQuestionState);
+  renderProgress(run, currentQuestionState);
+  title.focus();
 }
 
 // Функция: обновляет название, иконку и тему оформления подписи в шапке
@@ -211,22 +228,18 @@ function startQuiz(subjectId: string): void {
   const subjectElement = document.querySelector<HTMLElement>(
     '[data-js="subject"]'
   );
-  const questionTitle = document.querySelector<HTMLElement>(
-    '[data-js="question-title"]'
-  );
-
-  if (!startScreen || !questionScreen || !subjectElement || !questionTitle) {
+  if (!startScreen || !questionScreen || !subjectElement) {
     throw new Error('Не найдены элементы для переключения экранов');
   }
 
-  prepareFirstQuestion(quiz);
+  currentRun = { quiz, questionIndex: 0, score: 0 };
   renderSubject(subject);
 
   questionScreen.hidden = false;
   subjectElement.hidden = false;
   startScreen.hidden = true;
 
-  questionTitle.focus();
+  openQuestion(currentRun);
 }
 
 // Функция: запускает тему, указанную на нажатой кнопке
@@ -399,13 +412,23 @@ function renderSelectionError(hasError: boolean): void {
   errorMessage.textContent = hasError ? 'Please select an answer' : '';
 }
 
-// Функция: проверяет ответ и фиксирует результат текущего вопроса
-// Принимает: ничего
+// Функция: подтверждает ответ или открывает следующий вопрос отдельным действием
+// Принимает: активацию кнопки мышью или клавиатурой
 // Возвращает: ничего
-function handleSubmitAnswer(): void {
+function handleQuizAction(event: MouseEvent): void {
   const state = currentQuestionState;
+  const run = currentRun;
 
-  if (!state || state.result !== null) {
+  if (!state || !run || !submitButton || !feedback || event.detail > 1) {
+    return;
+  }
+
+  const hasNext = run.questionIndex + 1 < run.quiz.questions.length;
+  if (state.result !== null) {
+    if (hasNext) {
+      run.questionIndex += 1;
+      openQuestion(run);
+    }
     return;
   }
 
@@ -422,24 +445,14 @@ function handleSubmitAnswer(): void {
     throw new Error('Не найден выбранный вариант ответа');
   }
 
-  const button = document.querySelector<HTMLButtonElement>(
-    '[data-js="submit-answer"]'
-  );
-  const feedback = document.querySelector<HTMLElement>(
-    '[data-js="answer-feedback"]'
-  );
-  const progress = document.querySelector<HTMLProgressElement>(
-    '[data-js="quiz-progress"]'
-  );
-
-  if (!button || !feedback || !progress) {
-    throw new Error('Не найдены элементы для отображения результата');
-  }
-
   state.result = {
     selectedIndex: state.selectedIndex,
     isCorrect: selectedOption === state.question.answer,
   };
+
+  if (state.result.isCorrect) {
+    run.score += 1;
+  }
 
   renderAnswerStates(state);
 
@@ -447,14 +460,18 @@ function handleSubmitAnswer(): void {
     input.setAttribute('aria-disabled', 'true');
   }
 
-  button.setAttribute('aria-disabled', 'true');
-  button.textContent = 'Answer submitted';
+  if (hasNext) {
+    submitButton.textContent = 'Next Question';
+    // Повторный Enter не должен активировать Next до осознанного перехода Tab.
+    if (event.detail === 0) {
+      answerInputs[state.selectedIndex]?.focus({ preventScroll: true });
+    }
+  } else {
+    submitButton.setAttribute('aria-disabled', 'true');
+    submitButton.textContent = 'Answer submitted';
+  }
 
-  const progressText = `1 of ${state.totalQuestions} answers submitted`;
-  progress.value = 1;
-  progress.textContent = progressText;
-  progress.setAttribute('aria-label', `Quiz progress: ${progressText}`);
-
+  const progressText = renderProgress(run, state);
   const outcome = state.result.isCorrect
     ? 'Correct answer.'
     : 'Incorrect answer.';
@@ -465,8 +482,12 @@ const submitButton = document.querySelector<HTMLButtonElement>(
   '[data-js="submit-answer"]'
 );
 
-if (!submitButton) {
-  throw new Error('Не найдена кнопка подтверждения ответа');
+const feedback = document.querySelector<HTMLElement>(
+  '[data-js="answer-feedback"]'
+);
+
+if (!submitButton || !feedback) {
+  throw new Error('Не найдена кнопка или сообщение о результате ответа');
 }
 
-submitButton.addEventListener('click', handleSubmitAnswer);
+submitButton.addEventListener('click', handleQuizAction);
