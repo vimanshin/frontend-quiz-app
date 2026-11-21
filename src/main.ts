@@ -32,6 +32,7 @@ type QuestionState = {
 
 type QuizRun = {
   quiz: Quiz;
+  subject: Subject;
   questionIndex: number;
   score: number;
 };
@@ -148,7 +149,6 @@ function openQuestion(run: QuizRun): void {
   }
 
   questionNumber.textContent = `Question ${run.questionIndex + 1} of ${run.quiz.questions.length}`;
-  submitButton.removeAttribute('aria-disabled');
   submitButton.textContent = 'Submit Answer';
   feedback.textContent = '';
 
@@ -165,18 +165,10 @@ function openQuestion(run: QuizRun): void {
   title.focus();
 }
 
-// Функция: обновляет название, иконку и тему оформления подписи в шапке
-// Принимает: конфигурацию выбранной темы
+// Функция: обновляет название, иконку и подложку значка выбранной темы
+// Принимает: конфигурацию темы и контейнер подписи
 // Возвращает: ничего
-function renderSubject(subject: Subject): void {
-  const subjectElement = document.querySelector<HTMLElement>(
-    '[data-js="subject"]'
-  );
-
-  if (!subjectElement) {
-    throw new Error('Не найдена подпись темы в шапке');
-  }
-
+function renderSubject(subject: Subject, subjectElement: HTMLElement): void {
   const subjectImage = subjectElement.querySelector<HTMLImageElement>(
     '[data-js="subject-image"]'
   );
@@ -191,6 +183,33 @@ function renderSubject(subject: Subject): void {
   subjectImage.src = subject.iconUrl;
   subjectName.textContent = subject.title;
   subjectElement.dataset.subject = subject.id;
+}
+
+const startScreen = document.querySelector<HTMLElement>(
+  '[data-js="start-screen"]'
+);
+const questionScreen = document.querySelector<HTMLElement>(
+  '[data-js="question-screen"]'
+);
+const resultScreen = document.querySelector<HTMLElement>(
+  '[data-js="result-screen"]'
+);
+const headerSubject = document.querySelector<HTMLElement>(
+  '[data-js="subject"]'
+);
+
+// Функция: оставляет видимым только нужный экран и скрывает тему в меню
+// Принимает: экран, который нужно показать
+// Возвращает: ничего
+function showScreen(screen: 'start' | 'question' | 'result'): void {
+  if (!startScreen || !questionScreen || !resultScreen || !headerSubject) {
+    throw new Error('Не найдены элементы для переключения экранов');
+  }
+
+  startScreen.hidden = screen !== 'start';
+  questionScreen.hidden = screen !== 'question';
+  resultScreen.hidden = screen !== 'result';
+  headerSubject.hidden = screen === 'start';
 }
 
 // Функция: открывает первый вопрос темы и переводит фокус в видимый экран
@@ -219,26 +238,13 @@ function startQuiz(subjectId: string): void {
     throw new Error(`Не найдены данные квиза: ${subject.title}`);
   }
 
-  const startScreen = document.querySelector<HTMLElement>(
-    '[data-js="start-screen"]'
-  );
-  const questionScreen = document.querySelector<HTMLElement>(
-    '[data-js="question-screen"]'
-  );
-  const subjectElement = document.querySelector<HTMLElement>(
-    '[data-js="subject"]'
-  );
-  if (!startScreen || !questionScreen || !subjectElement) {
-    throw new Error('Не найдены элементы для переключения экранов');
+  if (!headerSubject) {
+    throw new Error('Не найдена подпись темы в шапке');
   }
 
-  currentRun = { quiz, questionIndex: 0, score: 0 };
-  renderSubject(subject);
-
-  questionScreen.hidden = false;
-  subjectElement.hidden = false;
-  startScreen.hidden = true;
-
+  currentRun = { quiz, subject, questionIndex: 0, score: 0 };
+  renderSubject(subject, headerSubject);
+  showScreen('question');
   openQuestion(currentRun);
 }
 
@@ -412,7 +418,51 @@ function renderSelectionError(hasError: boolean): void {
   errorMessage.textContent = hasError ? 'Please select an answer' : '';
 }
 
-// Функция: подтверждает ответ или открывает следующий вопрос отдельным действием
+// Функция: показывает итог завершённого прохождения и фокусирует его заголовок
+// Принимает: завершённое прохождение
+// Возвращает: ничего
+function showResults(run: QuizRun): void {
+  const title = resultScreen?.querySelector<HTMLElement>(
+    '[data-js="result-title"]'
+  );
+  const subject = resultScreen?.querySelector<HTMLElement>(
+    '[data-js="result-subject"]'
+  );
+  const score = resultScreen?.querySelector<HTMLElement>(
+    '[data-js="result-value"]'
+  );
+  const total = resultScreen?.querySelector<HTMLElement>(
+    '[data-js="result-total"]'
+  );
+  if (!title || !subject || !score || !total) {
+    throw new Error('Не найдены элементы экрана результата');
+  }
+
+  renderSubject(run.subject, subject);
+  score.textContent = String(run.score);
+  total.textContent = `out of ${run.quiz.questions.length}`;
+  currentQuestionState = null;
+  showScreen('result');
+  title.focus();
+}
+
+// Функция: сбрасывает завершённую попытку и возвращает к выбору темы
+// Принимает: ничего
+// Возвращает: ничего
+function handlePlayAgain(): void {
+  const title = startScreen?.querySelector<HTMLElement>(
+    '[data-js="start-title"]'
+  );
+  if (!title) {
+    throw new Error('Не найден заголовок меню');
+  }
+
+  currentRun = null;
+  showScreen('start');
+  title.focus();
+}
+
+// Функция: подтверждает ответ или открывает следующий вопрос либо результат
 // Принимает: активацию кнопки мышью или клавиатурой
 // Возвращает: ничего
 function handleQuizAction(event: MouseEvent): void {
@@ -428,6 +478,8 @@ function handleQuizAction(event: MouseEvent): void {
     if (hasNext) {
       run.questionIndex += 1;
       openQuestion(run);
+    } else {
+      showResults(run);
     }
     return;
   }
@@ -460,15 +512,10 @@ function handleQuizAction(event: MouseEvent): void {
     input.setAttribute('aria-disabled', 'true');
   }
 
-  if (hasNext) {
-    submitButton.textContent = 'Next Question';
-    // Повторный Enter не должен активировать Next до осознанного перехода Tab.
-    if (event.detail === 0) {
-      answerInputs[state.selectedIndex]?.focus({ preventScroll: true });
-    }
-  } else {
-    submitButton.setAttribute('aria-disabled', 'true');
-    submitButton.textContent = 'Answer submitted';
+  submitButton.textContent = hasNext ? 'Next Question' : 'Show Results';
+  // Повторный Enter не должен активировать новое действие до перехода Tab.
+  if (event.detail === 0) {
+    answerInputs[state.selectedIndex]?.focus({ preventScroll: true });
   }
 
   const progressText = renderProgress(run, state);
@@ -485,9 +532,13 @@ const submitButton = document.querySelector<HTMLButtonElement>(
 const feedback = document.querySelector<HTMLElement>(
   '[data-js="answer-feedback"]'
 );
+const playAgainButton = document.querySelector<HTMLButtonElement>(
+  '[data-js="play-again"]'
+);
 
-if (!submitButton || !feedback) {
-  throw new Error('Не найдена кнопка или сообщение о результате ответа');
+if (!submitButton || !feedback || !playAgainButton) {
+  throw new Error('Не найдены действия квиза или сообщение об ответе');
 }
 
 submitButton.addEventListener('click', handleQuizAction);
+playAgainButton.addEventListener('click', handlePlayAgain);

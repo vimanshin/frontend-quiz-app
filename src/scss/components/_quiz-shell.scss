@@ -33,7 +33,7 @@
   }
 }
 
-.quiz-shell:has(.question-screen:not([hidden])) {
+.quiz-shell:has(.question-screen:not([hidden]), .result-screen:not([hidden])) {
   @include mixins.tablet {
     padding-block-start: 2.5rem;
   }

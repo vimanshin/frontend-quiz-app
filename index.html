@@ -53,7 +53,7 @@
       <main>
         <section class="start-screen" data-js="start-screen">
           <div class="start-screen__welcome">
-            <h1 class="start-screen__title">
+            <h1 class="start-screen__title" data-js="start-title" tabindex="-1">
               Welcome to the
               <span class="start-screen__title-accent">Frontend Quiz!</span>
             </h1>
@@ -299,6 +299,53 @@
                 aria-atomic="true"
               ></div>
             </div>
+          </div>
+        </section>
+
+        <section class="result-screen" data-js="result-screen" hidden>
+          <h1
+            class="result-screen__title"
+            data-js="result-title"
+            tabindex="-1"
+            aria-describedby="result-score"
+          >
+            Quiz completed
+            <span class="result-screen__title-accent">You scored...</span>
+          </h1>
+
+          <div class="result-screen__body">
+            <div class="result-screen__card">
+              <div
+                class="quiz-header__subject result-screen__subject"
+                data-js="result-subject"
+              >
+                <span class="quiz-header__subject-icon">
+                  <img
+                    class="quiz-header__subject-image"
+                    data-js="subject-image"
+                    src="/src/assets/images/icon-accessibility.svg"
+                    width="40"
+                    height="40"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <span
+                  class="quiz-header__subject-name"
+                  data-js="subject-name"
+                ></span>
+              </div>
+              <p class="result-screen__score" id="result-score">
+                <span data-js="result-value"></span>
+                <span
+                  class="result-screen__total"
+                  data-js="result-total"
+                ></span>
+              </p>
+            </div>
+            <button class="submit-button" type="button" data-js="play-again">
+              Play Again
+            </button>
           </div>
         </section>
       </main>
